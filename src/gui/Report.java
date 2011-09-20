@@ -1,0 +1,195 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/*
+ * Report.java
+ *
+ * Created on 6-nov-2009, 13.02.19
+ */
+
+package gui;
+
+import java.text.DecimalFormat;
+import testsuitemanager.TestCase;
+
+/**
+ *
+ * @author angelo
+ */
+public class Report extends javax.swing.JFrame {
+    private Object[] tc = null;
+    private Object[] tc_r = null;
+    private int[][] m_f = null;
+    private int[][] m_r = null;
+    private String clusterSt;
+    private String clusterTr;
+    private String tipoMod;
+    private String idLabel;
+    private boolean impor;
+
+    /** Creates new form Report */
+    public Report(Object[] tCase, Object[] tCase_R, int[][] matr_full, int[][] matr_reduc, String cluSt, String cluTr, String kindMod, String idOrLa, boolean imp){
+        initComponents();
+        this.setResizable(false);
+        this.tc = tCase;
+        this.tc_r = tCase_R;
+        this.m_f = matr_full;
+        this.m_r = matr_reduc;
+        this.clusterSt = new String(cluSt);
+        this.clusterTr = new String(cluTr);
+        this.tipoMod = new String(kindMod);
+        this.idLabel = new String(idOrLa);
+        this.impor = imp;
+        this.init();
+        
+    }
+
+    private void init(){
+        jTA_Result.setEditable(false);
+        jTA_Result.append(" -:-:- REPORT -:-:-\n");
+            jTA_Result.append("Numero di TC selezionati: "+tc.length+"\n");
+            jTA_Result.append("Elenco TC selezionati: \n");
+            for(int i = 0; i < tc.length; i++){
+                jTA_Result.append("-> "+((TestCase)tc[i]).getIdTrace()+" "+((TestCase)tc[i]).getNameTrace()+"\n");
+            }
+            jTA_Result.append("\n");
+            jTA_Result.append("TC dopo la riduzione basata su "+this.tipoMod+" \n");
+            if(this.tipoMod.equals("States")){
+                jTA_Result.append("con criterio di clusterizzazione "+this.clusterSt+" \n");
+            }
+            else{
+                jTA_Result.append("con criterio di clusterizzazione "+this.clusterTr+" \n");
+            }
+            if(!this.impor){
+                for(int i = 0; i < tc_r.length; i++){
+                    jTA_Result.append("-> "+((TestCase)tc_r[i]).getIdTrace()+" "+((TestCase)tc_r[i]).getNameTrace()+"   Coverage: "+this.coverage(i)+"\n");
+                }
+                jTA_Result.append("\n");
+                jTA_Result.append("Minimizzazione basata sulle label.\n");
+                jTA_Result.append("% di "+this.tipoMod+" coperti/e dalla TS selezionata: "+this.calcPercentCop(this.m_f)+"\n");
+            }
+            else{
+                for(int i = 0; i < tc_r.length; i++){
+                    jTA_Result.append("-> "+((TestCase)tc_r[i]).getIdTrace()+" "+((TestCase)tc_r[i]).getNameTrace()+"   Coverage: "+this.coverage(i)+"\n");
+                }
+                jTA_Result.append("\n");
+            }
+            jTA_Result.append("Numero di TC prima della Min: "+this.m_f.length+"\n");
+            jTA_Result.append("Numero di TC dopo la Min: "+this.m_r.length+"\n");
+            jTA_Result.append("% di riduzione dei TC dopo la Min: "+this.calculateDiff(this.m_f.length, this.m_r.length)+"\n");
+    }
+
+    private String coverage(int i){
+        int numOne = 0;
+        double perc;
+        for(int k = 0; k < this.m_r[0].length; k++){
+            if(this.m_r[i][k] == 1){
+                numOne++;
+            }
+        }
+        DecimalFormat df = new DecimalFormat("#.##");
+        perc = Double.valueOf(Integer.toString(numOne)) / Double.valueOf(Integer.toString(this.m_r[0].length));
+        perc = perc * 100;
+        return df.format(perc)+"%";
+    }
+
+    private String calcPercentCop(int[][] ma_r){
+        double perc;
+        int i = 0;
+        int[] row_tot = new int[ma_r[0].length];
+        int num_uno = 0;
+        for(int j = 0; j < ma_r[0].length; j++){
+            row_tot[j] = 0;
+            for(i = 0; i < ma_r.length; i++){
+                if(ma_r[i][j] == 1){
+                    row_tot[j] = 1;
+                }
+            }
+            if(row_tot[j] == 1){
+                num_uno++;
+            }
+        }
+        DecimalFormat df = new DecimalFormat("#.##");
+        perc = Double.valueOf(Integer.toString(num_uno)) / Double.valueOf(Integer.toString(row_tot.length));
+        perc = perc * 100;
+        return df.format(perc)+"%";
+    }
+
+    private String calculateDiff(int dim_full, int dim_red){
+        double perc;
+        DecimalFormat df = new DecimalFormat("#.##");
+        perc = (Double.valueOf(Integer.toString(dim_full)) - Double.valueOf(Integer.toString(dim_red))) / Double.valueOf(Integer.toString(dim_full));
+        perc = perc * 100;
+        return df.format(perc)+"%";
+    }
+
+    /** This method is called from within the constructor to
+     * initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is
+     * always regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTA_Result = new javax.swing.JTextArea();
+        jTx_titolo = new javax.swing.JTextField();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Reports");
+
+        jTA_Result.setColumns(20);
+        jTA_Result.setRows(5);
+        jScrollPane1.setViewportView(jTA_Result);
+
+        jTx_titolo.setBackground(new java.awt.Color(204, 255, 204));
+        jTx_titolo.setEditable(false);
+        jTx_titolo.setFont(new java.awt.Font("Lucida Grande", 3, 14));
+        jTx_titolo.setForeground(new java.awt.Color(0, 0, 204));
+        jTx_titolo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTx_titolo.setText("Reports");
+        jTx_titolo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTx_titolo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jTx_titolo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    /**
+    * @param args the command line arguments
+    */
+//    public static void main(String args[]) {
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new Report(null).setVisible(true);
+//            }
+//        });
+//    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTA_Result;
+    private javax.swing.JTextField jTx_titolo;
+    // End of variables declaration//GEN-END:variables
+
+}

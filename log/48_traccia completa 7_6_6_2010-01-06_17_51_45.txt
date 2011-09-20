@@ -1,0 +1,258 @@
+15/02/2010 - 13:21:44 --- LOG TRACE ---> traccia completa 7_6_6
+15/02/2010 - 13:21:44  -- Comandi che verranno eseguti -- 
+
+15/02/2010 - 13:21:44 click //html[1]/body[1]/table[1]/tbody[1]/tr[1]/td[2]/ul[1]/li[2]/a[1] 324
+15/02/2010 - 13:21:44 click //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/div[1]/form[1]/input[2] 325
+15/02/2010 - 13:21:44 click //html[1]/body[1]/table[1]/tbody[1]/tr[1]/td[2]/ul[1]/li[1]/a[1] 326
+15/02/2010 - 13:21:44 click //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/form[1]/table[1]/tbody[1]/tr[4]/th[1]/input[1] 327
+15/02/2010 - 13:21:44 click //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/div[6]/div[2]/form[1]/a[2] 328
+15/02/2010 - 13:21:44 click //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/div[1]/div[2]/form[1]/table[1]/tbody[1]/tr[5]/td[1]/a[1] 332
+15/02/2010 - 13:21:44 click //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/table[1]/thead[1]/tr[6]/td[1]/a[1] 334
+15/02/2010 - 13:21:44 click //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/table[1]/thead[1]/tr[3]/td[1]/a[1] 335
+15/02/2010 - 13:21:44 click //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/div[3]/div[2]/form[1]/table[1]/tbody[1]/tr[3]/td[1]/a[1] 336
+15/02/2010 - 13:21:44 click //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/table[1]/thead[1]/tr[3]/td[1]/a[1] 337
+15/02/2010 - 13:21:44 click //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/div[3]/div[2]/form[1]/table[1]/tbody[1]/tr[3]/td[1]/a[1] 338
+15/02/2010 - 13:21:44 click //html[1]/body[1]/table[1]/tbody[1]/tr[1]/td[2]/ul[1]/li[3]/a[1] 339
+15/02/2010 - 13:21:44 end //html[1]/body[1]/table[1]/tbody[1]/tr[1]/td[2]/ul[1]/li[3]/a[1] 340
+15/02/2010 - 13:21:44  -- Fine comandi che verranno eseguti -- 
+
+15/02/2010 - 13:22:09 Verifica interfaccia: 324 cluster selezionato C4
+15/02/2010 - 13:22:09 Eseguo assertPage su interfaccia: 324
+15/02/2010 - 13:22:10 C4 --> A //html/body/table/tbody/tr/td/a
+15/02/2010 - 13:22:11 C4 --> A //html/body/table/tbody/tr/td/ul/li/a
+15/02/2010 - 13:22:12 C4 --> A //html/body/table[@id='page']/tbody/tr/td/a
+15/02/2010 - 13:22:13 C4 --> A //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div/ul/li/a
+15/02/2010 - 13:22:14 C4 --> A //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/p/a
+15/02/2010 - 13:22:16 C4 --> FORM //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/form
+15/02/2010 - 13:22:17 C4 --> INPUT //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/form/table/tbody/tr/th/input
+15/02/2010 - 13:22:17 AssertPage su interfaccia:324 eseguito con successo
+15/02/2010 - 13:22:17 Eseguo il typing su interfaccia:324.
+15/02/2010 - 13:22:17 Oggetto: //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/form[1]/table[1]/tbody[1]/tr[1]/td[1]/input[1].
+15/02/2010 - 13:22:17 Valore: .
+15/02/2010 - 13:22:18 Oggetto: //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/form[1]/table[1]/tbody[1]/tr[2]/td[1]/input[1].
+15/02/2010 - 13:22:18 Valore: .
+15/02/2010 - 13:22:19 Oggetto: //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/form[1]/table[1]/tbody[1]/tr[3]/td[1]/p[1]/input[1].
+15/02/2010 - 13:22:19 Valore: false.
+15/02/2010 - 13:22:20 Fine typing su interfaccia:324.
+15/02/2010 - 13:22:20 Click su: //html[1]/body[1]/table[1]/tbody[1]/tr[1]/td[2]/ul[1]/li[2]/a[1]
+15/02/2010 - 13:22:21 Fine verifica interfaccia: 324
+15/02/2010 - 13:22:21 Verifica interfaccia: 325 cluster selezionato C4
+15/02/2010 - 13:22:21 Eseguo assertPage su interfaccia: 325
+15/02/2010 - 13:22:22 C4 --> A //html/body/table/tbody/tr/td/a
+15/02/2010 - 13:22:23 C4 --> A //html/body/table/tbody/tr/td/ul/li/a
+15/02/2010 - 13:22:24 C4 --> A //html/body/table[@id='page']/tbody/tr/td/a
+15/02/2010 - 13:22:25 C4 --> FORM //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/div/form
+15/02/2010 - 13:22:26 C4 --> INPUT //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/div/form/input
+15/02/2010 - 13:22:26 AssertPage su interfaccia:325 eseguito con successo
+15/02/2010 - 13:22:26 Eseguo il typing su interfaccia:325.
+15/02/2010 - 13:22:26 Oggetto: //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/div[1]/form[1]/table[1]/tbody[2]/tr[1]/td[2]/input[1].
+15/02/2010 - 13:22:26 Valore: pippo.
+15/02/2010 - 13:22:27 Oggetto: //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/div[1]/form[1]/table[1]/tbody[2]/tr[2]/td[2]/input[1].
+15/02/2010 - 13:22:27 Valore: pippo.
+15/02/2010 - 13:22:28 Oggetto: //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/div[1]/form[1]/table[1]/tbody[2]/tr[3]/td[2]/input[1].
+15/02/2010 - 13:22:28 Valore: pippo.
+15/02/2010 - 13:22:29 Oggetto: //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/div[1]/form[1]/table[1]/tbody[2]/tr[4]/td[2]/input[1].
+15/02/2010 - 13:22:29 Valore: .
+15/02/2010 - 13:22:30 Oggetto: //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/div[1]/form[1]/table[1]/tbody[2]/tr[5]/td[2]/input[1].
+15/02/2010 - 13:22:30 Valore: pippo.
+15/02/2010 - 13:22:31 Oggetto: //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/div[1]/form[1]/table[1]/tbody[2]/tr[6]/td[2]/input[1].
+15/02/2010 - 13:22:31 Valore: pippo.
+15/02/2010 - 13:22:32 Fine typing su interfaccia:325.
+15/02/2010 - 13:22:32 Click su: //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/div[1]/form[1]/input[2]
+15/02/2010 - 13:22:33 Fine verifica interfaccia: 325
+15/02/2010 - 13:22:33 Verifica interfaccia: 326 cluster selezionato C4
+15/02/2010 - 13:22:33 Eseguo assertPage su interfaccia: 326
+15/02/2010 - 13:22:35 C4 --> A //html/body/table/tbody/tr/td/a
+15/02/2010 - 13:22:36 C4 --> A //html/body/table/tbody/tr/td/ul/li/a
+15/02/2010 - 13:22:37 C4 --> A //html/body/table[@id='page']/tbody/tr/td/a
+15/02/2010 - 13:22:38 C4 --> A //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/div/p/a
+15/02/2010 - 13:22:38 AssertPage su interfaccia:326 eseguito con successo
+15/02/2010 - 13:22:38 Click su: //html[1]/body[1]/table[1]/tbody[1]/tr[1]/td[2]/ul[1]/li[1]/a[1]
+15/02/2010 - 13:22:39 Fine verifica interfaccia: 326
+15/02/2010 - 13:22:39 Verifica interfaccia: 327 cluster selezionato C4
+15/02/2010 - 13:22:39 Eseguo assertPage su interfaccia: 327
+15/02/2010 - 13:22:40 C4 --> A //html/body/table/tbody/tr/td/a
+15/02/2010 - 13:22:41 C4 --> A //html/body/table/tbody/tr/td/ul/li/a
+15/02/2010 - 13:22:42 C4 --> A //html/body/table[@id='page']/tbody/tr/td/a
+15/02/2010 - 13:22:43 C4 --> A //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div/ul/li/a
+15/02/2010 - 13:22:44 C4 --> A //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/p/a
+15/02/2010 - 13:22:45 C4 --> FORM //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/form
+15/02/2010 - 13:22:46 C4 --> INPUT //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/form/table/tbody/tr/th/input
+15/02/2010 - 13:22:46 AssertPage su interfaccia:327 eseguito con successo
+15/02/2010 - 13:22:46 Eseguo il typing su interfaccia:327.
+15/02/2010 - 13:22:46 Oggetto: //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/form[1]/table[1]/tbody[1]/tr[1]/td[1]/input[1].
+15/02/2010 - 13:22:46 Valore: pippo.
+15/02/2010 - 13:22:47 Oggetto: //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/form[1]/table[1]/tbody[1]/tr[2]/td[1]/input[1].
+15/02/2010 - 13:22:47 Valore: pippo.
+15/02/2010 - 13:22:48 Oggetto: //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/form[1]/table[1]/tbody[1]/tr[3]/td[1]/p[1]/input[1].
+15/02/2010 - 13:22:48 Valore: false.
+15/02/2010 - 13:22:49 Fine typing su interfaccia:327.
+15/02/2010 - 13:22:49 Click su: //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/form[1]/table[1]/tbody[1]/tr[4]/th[1]/input[1]
+15/02/2010 - 13:22:50 Fine verifica interfaccia: 327
+15/02/2010 - 13:22:50 Verifica interfaccia: 328 cluster selezionato C4
+15/02/2010 - 13:22:50 Eseguo assertPage su interfaccia: 328
+15/02/2010 - 13:22:51 C4 --> A //html/body/table/tbody/tr/td/a
+15/02/2010 - 13:22:52 C4 --> A //html/body/table/tbody/tr/td/ul/li/a
+15/02/2010 - 13:22:53 C4 --> A //html/body/table[@id='page']/tbody/tr/td/a
+15/02/2010 - 13:22:54 C4 --> A //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='menuDiv']/table[@id='menuTable']/tbody/tr/td/a
+15/02/2010 - 13:22:55 C4 --> A //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='menuDiv']/table[@id='menuTable']/thead/tr/td/a
+15/02/2010 - 13:22:56 C4 --> A //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='todosTable']/a
+15/02/2010 - 13:22:57 C4 --> A //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='todosTable']/div/form/a
+15/02/2010 - 13:22:58 C4 --> A //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='todosTable']/div/table/tbody/tr/td/a
+15/02/2010 - 13:22:59 C4 --> FORM //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/form
+15/02/2010 - 13:23:00 C4 --> FORM //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='todosTable']/div/form
+15/02/2010 - 13:23:01 C4 --> INPUT //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='todosTable']/div/form/input
+15/02/2010 - 13:23:02 C4 --> INPUT //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='todosTable']/div/table/tbody/tr/td/input
+15/02/2010 - 13:23:03 C4 --> TD //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='todosTable']/div/table/tbody/tr/td
+15/02/2010 - 13:23:04 C4 --> TH //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='todosTable']/div/table/tbody/tr/th
+15/02/2010 - 13:23:04 AssertPage su interfaccia:328 eseguito con successo
+15/02/2010 - 13:23:04 Eseguo il typing su interfaccia:328.
+15/02/2010 - 13:23:04 Oggetto: //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/div[6]/div[2]/form[1]/input[1].
+15/02/2010 - 13:23:04 Valore: .
+15/02/2010 - 13:23:05 Oggetto: //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/div[6]/div[3]/table[1]/tbody[1]/tr[2]/td[4]/input[1].
+15/02/2010 - 13:23:05 Valore: false.
+15/02/2010 - 13:23:06 Fine typing su interfaccia:328.
+15/02/2010 - 13:23:06 Click su: //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/div[6]/div[2]/form[1]/a[2]
+15/02/2010 - 13:23:07 Fine verifica interfaccia: 328
+15/02/2010 - 13:23:07 Verifica interfaccia: 332 cluster selezionato C4
+15/02/2010 - 13:23:07 Eseguo assertPage su interfaccia: 332
+15/02/2010 - 13:23:09 C4 --> A //html/body/table/tbody/tr/td/a
+15/02/2010 - 13:23:10 C4 --> A //html/body/table/tbody/tr/td/ul/li/a
+15/02/2010 - 13:23:11 C4 --> A //html/body/table[@id='page']/tbody/tr/td/a
+15/02/2010 - 13:23:12 C4 --> A //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='addNewTodoDiv']/div/form/table/tbody/tr/td/a
+15/02/2010 - 13:23:13 C4 --> A //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='menuDiv']/table[@id='menuTable']/tbody/tr/td/a
+15/02/2010 - 13:23:14 C4 --> A //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='menuDiv']/table[@id='menuTable']/thead/tr/td/a
+15/02/2010 - 13:23:15 C4 --> A //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='todosTable']/a
+15/02/2010 - 13:23:16 C4 --> A //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='todosTable']/div/form/a
+15/02/2010 - 13:23:17 C4 --> A //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='todosTable']/div/table/tbody/tr/td/a
+15/02/2010 - 13:23:18 C4 --> FORM //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/form
+15/02/2010 - 13:23:19 C4 --> FORM //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='addNewTodoDiv']/div/form
+15/02/2010 - 13:23:20 C4 --> FORM //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='todosTable']/div/form
+15/02/2010 - 13:23:21 C4 --> INPUT //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='todosTable']/div/form/input
+15/02/2010 - 13:23:22 C4 --> INPUT //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='todosTable']/div/table/tbody/tr/td/input
+15/02/2010 - 13:23:23 C4 --> TD //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='todosTable']/div/table/tbody/tr/td
+15/02/2010 - 13:23:24 C4 --> TEXTAREA //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='addNewTodoDiv']/div/form/table/tbody/tr/td/textarea
+15/02/2010 - 13:23:25 C4 --> TH //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='todosTable']/div/table/tbody/tr/th
+15/02/2010 - 13:23:25 AssertPage su interfaccia:332 eseguito con successo
+15/02/2010 - 13:23:25 Eseguo il typing su interfaccia:332.
+15/02/2010 - 13:23:25 Oggetto: //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/div[1]/div[2]/form[1]/table[1]/tbody[1]/tr[1]/td[2]/input[1].
+15/02/2010 - 13:23:25 Valore: calcio.
+15/02/2010 - 13:23:26 Oggetto: //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/div[1]/div[2]/form[1]/table[1]/tbody[1]/tr[2]/td[2]/input[1].
+15/02/2010 - 13:23:26 Valore: .
+15/02/2010 - 13:23:27 Oggetto: //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/div[1]/div[2]/form[1]/table[1]/tbody[1]/tr[2]/td[4]/input[1].
+15/02/2010 - 13:23:27 Valore: .
+15/02/2010 - 13:23:28 Oggetto: //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/div[6]/div[2]/form[1]/input[1].
+15/02/2010 - 13:23:28 Valore: .
+15/02/2010 - 13:23:29 Oggetto: //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/div[6]/div[3]/table[1]/tbody[1]/tr[2]/td[4]/input[1].
+15/02/2010 - 13:23:29 Valore: false.
+15/02/2010 - 13:23:30 Oggetto: //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/div[1]/div[2]/form[1]/table[1]/tbody[1]/tr[3]/td[2]/select[1].
+15/02/2010 - 13:23:30 Valore: pippo.
+15/02/2010 - 13:23:31 Oggetto: //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/div[1]/div[2]/form[1]/table[1]/tbody[1]/tr[4]/td[2]/textarea[1].
+15/02/2010 - 13:23:31 Valore: forza napoli.
+15/02/2010 - 13:23:32 Fine typing su interfaccia:332.
+15/02/2010 - 13:23:32 Click su: //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/div[1]/div[2]/form[1]/table[1]/tbody[1]/tr[5]/td[1]/a[1]
+15/02/2010 - 13:23:33 Fine verifica interfaccia: 332
+15/02/2010 - 13:23:33 Verifica interfaccia: 334 cluster selezionato C4
+15/02/2010 - 13:23:33 Eseguo assertPage su interfaccia: 334
+15/02/2010 - 13:23:34 C4 --> A //html/body/table/tbody/tr/td/a
+15/02/2010 - 13:23:35 C4 --> A //html/body/table/tbody/tr/td/ul/li/a
+15/02/2010 - 13:23:36 C4 --> A //html/body/table[@id='page']/tbody/tr/td/a
+15/02/2010 - 13:23:37 C4 --> A //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='menuDiv']/table[@id='menuTable']/tbody/tr/td/a
+15/02/2010 - 13:23:38 C4 --> A //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='menuDiv']/table[@id='menuTable']/thead/tr/td/a
+15/02/2010 - 13:23:39 C4 --> A //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='todosTable']/a
+15/02/2010 - 13:23:40 C4 --> A //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='todosTable']/div/form/a
+15/02/2010 - 13:23:41 C4 --> A //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='todosTable']/div/table/tbody/tr/td/a
+15/02/2010 - 13:23:42 C4 --> FORM //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/form
+15/02/2010 - 13:23:43 C4 --> FORM //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='todosTable']/div/form
+15/02/2010 - 13:23:44 C4 --> INPUT //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='todosTable']/div/form/input
+15/02/2010 - 13:23:45 C4 --> INPUT //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='todosTable']/div/table/tbody/tr/td/input
+15/02/2010 - 13:23:46 C4 --> TD //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='todosTable']/div/table/tbody/tr/td
+15/02/2010 - 13:23:47 C4 --> TH //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='todosTable']/div/table/tbody/tr/th
+15/02/2010 - 13:23:47 AssertPage su interfaccia:334 eseguito con successo
+15/02/2010 - 13:23:47 Eseguo il typing su interfaccia:334.
+15/02/2010 - 13:23:47 Oggetto: //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/div[6]/div[2]/form[1]/input[1].
+15/02/2010 - 13:23:47 Valore: .
+15/02/2010 - 13:23:49 Oggetto: //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/div[6]/div[3]/table[1]/tbody[1]/tr[2]/td[4]/input[1].
+15/02/2010 - 13:23:49 Valore: false.
+15/02/2010 - 13:23:50 Oggetto: //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/div[6]/div[3]/table[1]/tbody[1]/tr[3]/td[4]/input[1].
+15/02/2010 - 13:23:50 Valore: false.
+15/02/2010 - 13:23:51 Fine typing su interfaccia:334.
+15/02/2010 - 13:23:51 Click su: //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/table[1]/thead[1]/tr[6]/td[1]/a[1]
+15/02/2010 - 13:23:52 Fine verifica interfaccia: 334
+15/02/2010 - 13:23:52 Verifica interfaccia: 335 cluster selezionato C4
+15/02/2010 - 13:23:52 Eseguo assertPage su interfaccia: 335
+15/02/2010 - 13:23:53 C4 --> A //html/body/table/tbody/tr/td/a
+15/02/2010 - 13:23:54 C4 --> A //html/body/table/tbody/tr/td/ul/li/a
+15/02/2010 - 13:23:55 C4 --> A //html/body/table[@id='page']/tbody/tr/td/a
+15/02/2010 - 13:23:56 C4 --> A //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='menuDiv']/table[@id='menuTable']/thead/tr/td/a
+15/02/2010 - 13:23:57 C4 --> FORM //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/form
+15/02/2010 - 13:23:57 AssertPage su interfaccia:335 eseguito con successo
+15/02/2010 - 13:23:57 Click su: //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/table[1]/thead[1]/tr[3]/td[1]/a[1]
+15/02/2010 - 13:23:58 Fine verifica interfaccia: 335
+15/02/2010 - 13:23:58 Verifica interfaccia: 336 cluster selezionato C4
+15/02/2010 - 13:23:58 Eseguo assertPage su interfaccia: 336
+15/02/2010 - 13:23:59 C4 --> A //html/body/table/tbody/tr/td/a
+15/02/2010 - 13:24:00 C4 --> A //html/body/table/tbody/tr/td/ul/li/a
+15/02/2010 - 13:24:01 C4 --> A //html/body/table[@id='page']/tbody/tr/td/a
+15/02/2010 - 13:24:02 C4 --> A //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='addNewListDiv']/div/form/table/tbody/tr/td/a
+15/02/2010 - 13:24:03 C4 --> A //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='menuDiv']/table[@id='menuTable']/thead/tr/td/a
+15/02/2010 - 13:24:04 C4 --> FORM //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/form
+15/02/2010 - 13:24:05 C4 --> FORM //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='addNewListDiv']/div/form
+15/02/2010 - 13:24:05 AssertPage su interfaccia:336 eseguito con successo
+15/02/2010 - 13:24:05 Eseguo il typing su interfaccia:336.
+15/02/2010 - 13:24:05 Oggetto: //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/div[3]/div[2]/form[1]/table[1]/tbody[1]/tr[1]/td[2]/input[1].
+15/02/2010 - 13:24:05 Valore: pippo.
+15/02/2010 - 13:24:06 Oggetto: //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/div[3]/div[2]/form[1]/table[1]/tbody[1]/tr[2]/td[2]/input[1].
+15/02/2010 - 13:24:06 Valore: false.
+15/02/2010 - 13:24:07 Fine typing su interfaccia:336.
+15/02/2010 - 13:24:07 Click su: //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/div[3]/div[2]/form[1]/table[1]/tbody[1]/tr[3]/td[1]/a[1]
+15/02/2010 - 13:24:08 Fine verifica interfaccia: 336
+15/02/2010 - 13:24:08 Verifica interfaccia: 337 cluster selezionato C4
+15/02/2010 - 13:24:08 Eseguo assertPage su interfaccia: 337
+15/02/2010 - 13:24:09 C4 --> A //html/body/table/tbody/tr/td/a
+15/02/2010 - 13:24:10 C4 --> A //html/body/table/tbody/tr/td/ul/li/a
+15/02/2010 - 13:24:11 C4 --> A //html/body/table[@id='page']/tbody/tr/td/a
+15/02/2010 - 13:24:12 C4 --> A //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='menuDiv']/table[@id='menuTable']/tbody/tr/td/a
+15/02/2010 - 13:24:13 C4 --> A //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='menuDiv']/table[@id='menuTable']/thead/tr/td/a
+15/02/2010 - 13:24:14 C4 --> FORM //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/form
+15/02/2010 - 13:24:14 AssertPage su interfaccia:337 eseguito con successo
+15/02/2010 - 13:24:14 Click su: //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/table[1]/thead[1]/tr[3]/td[1]/a[1]
+15/02/2010 - 13:24:15 Fine verifica interfaccia: 337
+15/02/2010 - 13:24:15 Verifica interfaccia: 338 cluster selezionato C4
+15/02/2010 - 13:24:15 Eseguo assertPage su interfaccia: 338
+15/02/2010 - 13:24:16 C4 --> A //html/body/table/tbody/tr/td/a
+15/02/2010 - 13:24:17 C4 --> A //html/body/table/tbody/tr/td/ul/li/a
+15/02/2010 - 13:24:18 C4 --> A //html/body/table[@id='page']/tbody/tr/td/a
+15/02/2010 - 13:24:19 C4 --> A //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='addNewListDiv']/div/form/table/tbody/tr/td/a
+15/02/2010 - 13:24:20 C4 --> A //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='menuDiv']/table[@id='menuTable']/tbody/tr/td/a
+15/02/2010 - 13:24:21 C4 --> A //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='menuDiv']/table[@id='menuTable']/thead/tr/td/a
+15/02/2010 - 13:24:22 C4 --> FORM //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/form
+15/02/2010 - 13:24:23 C4 --> FORM //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='addNewListDiv']/div/form
+15/02/2010 - 13:24:23 AssertPage su interfaccia:338 eseguito con successo
+15/02/2010 - 13:24:23 Eseguo il typing su interfaccia:338.
+15/02/2010 - 13:24:23 Oggetto: //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/div[3]/div[2]/form[1]/table[1]/tbody[1]/tr[1]/td[2]/input[1].
+15/02/2010 - 13:24:23 Valore: pippo2.
+15/02/2010 - 13:24:24 Oggetto: //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/div[3]/div[2]/form[1]/table[1]/tbody[1]/tr[2]/td[2]/input[1].
+15/02/2010 - 13:24:24 Valore: false.
+15/02/2010 - 13:24:25 Fine typing su interfaccia:338.
+15/02/2010 - 13:24:25 Click su: //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/div[3]/div[2]/form[1]/table[1]/tbody[1]/tr[3]/td[1]/a[1]
+15/02/2010 - 13:24:27 Fine verifica interfaccia: 338
+15/02/2010 - 13:24:27 Verifica interfaccia: 339 cluster selezionato C4
+15/02/2010 - 13:24:27 Eseguo assertPage su interfaccia: 339
+15/02/2010 - 13:24:28 C4 --> A //html/body/table/tbody/tr/td/a
+15/02/2010 - 13:24:29 C4 --> A //html/body/table/tbody/tr/td/ul/li/a
+15/02/2010 - 13:24:30 C4 --> A //html/body/table[@id='page']/tbody/tr/td/a
+15/02/2010 - 13:24:31 C4 --> A //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='menuDiv']/table[@id='menuTable']/tbody/tr/td/a
+15/02/2010 - 13:24:32 C4 --> A //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/table/tbody/tr/td/div[@id='menuDiv']/table[@id='menuTable']/thead/tr/td/a
+15/02/2010 - 13:24:33 C4 --> FORM //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/form
+15/02/2010 - 13:24:33 AssertPage su interfaccia:339 eseguito con successo
+15/02/2010 - 13:24:33 Click su: //html[1]/body[1]/table[1]/tbody[1]/tr[1]/td[2]/ul[1]/li[3]/a[1]
+15/02/2010 - 13:24:34 Fine verifica interfaccia: 339
+15/02/2010 - 13:24:34 Verifica interfaccia: 340 cluster selezionato C4
+15/02/2010 - 13:24:34 Eseguo assertPage su interfaccia: 340
+15/02/2010 - 13:24:35 C4 --> A //html/body/table/tbody/tr/td/a
+15/02/2010 - 13:24:36 C4 --> A //html/body/table/tbody/tr/td/ul/li/a
+15/02/2010 - 13:24:37 C4 --> A //html/body/table[@id='page']/tbody/tr/td/a
+15/02/2010 - 13:24:38 C4 --> A //html/body/table[@id='page']/tbody/tr/td/div[@id='content']/div/a
+15/02/2010 - 13:24:38 AssertPage su interfaccia:340 eseguito con successo
+15/02/2010 - 13:24:38 Fine verifica interfaccia: 340

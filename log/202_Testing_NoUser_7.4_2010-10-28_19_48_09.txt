@@ -1,0 +1,8 @@
+30/10/2010 - 12:20:38 --- LOG TRACE ---> Testing_NoUser_7.4
+30/10/2010 - 12:20:38  -- Comandi che verranno eseguti -- 
+
+30/10/2010 - 12:20:38 click //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/p[2]/a[1] 87
+30/10/2010 - 12:20:38 click //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/div[1]/form[1]/input[2] 88
+30/10/2010 - 12:20:38 end //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/div[1]/form[1]/input[2] 89
+30/10/2010 - 12:20:38  -- Fine comandi che verranno eseguti -- 
+
