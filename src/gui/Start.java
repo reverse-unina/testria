@@ -8,7 +8,6 @@
  *
  * Created on 9-ott-2009, 10.02.48
  */
-
 package gui;
 
 import testsuitereducer.MatrixTestCase;
@@ -23,6 +22,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -32,12 +33,14 @@ import org.jdom.output.Format;
 import org.jdom.output.XMLOutputter;
 import service.*;
 import testsuitemanager.TestSuite;
+import java.util.regex.Matcher;
 
 /**
  *
  * @author angelo
  */
 public class Start extends javax.swing.JFrame {
+
     public static Connection conn = null;
     public static String user = null;
     public static char[] passwo = null;
@@ -52,17 +55,18 @@ public class Start extends javax.swing.JFrame {
     private int[][] matrix_reduc = null;
     private String[][] tracesLoaded = null;
     public static JProgressBar jPB_progressione = new JProgressBar();
+
     /** Creates new form Start */
     public Start() {
+
         initComponents();
         jPB_progressione.setStringPainted(true);
         jPanelBar.add(jPB_progressione);
         String osType = System.getProperty("os.name");
         try {
-            if(osType.startsWith("Mac")){
+            if (osType.startsWith("Mac")) {
                 UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
-            }
-            else{
+            } else {
                 UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
             }
             SwingUtilities.updateComponentTreeUI(this);
@@ -72,7 +76,7 @@ public class Start extends javax.swing.JFrame {
             System.out.println("Errore nel settare il Look&Feel");
         }
         Object[] obj = {jB_DeleteTS, jCB_half, jCBox_cluster_face1, jDynaRia, jCB_mod, jB_Java, jCB_Kind, jB_View, jB_Filter, jB_ReduceTCs, jCBox_cluster, jB_XML, jB_Selenium, jCBox_cluster_face, jB_SelezGS, jB_Load, jRB_Import};
-        this.setEnableObject(obj , false);
+        this.setEnableObject(obj, false);
         jT_elenco.setRowSelectionAllowed(false);
         jT_Event.setRowSelectionAllowed(false);
         jCB_half.setSelected(true);
@@ -231,7 +235,7 @@ public class Start extends javax.swing.JFrame {
         jP_pannello.setLayout(jP_pannelloLayout);
         jP_pannelloLayout.setHorizontalGroup(
             jP_pannelloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 451, Short.MAX_VALUE)
         );
         jP_pannelloLayout.setVerticalGroup(
             jP_pannelloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -279,6 +283,11 @@ public class Start extends javax.swing.JFrame {
         });
 
         jPass_password.setText("root");
+        jPass_password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPass_passwordActionPerformed(evt);
+            }
+        });
 
         jTx_port.setText("3306");
 
@@ -338,8 +347,8 @@ public class Start extends javax.swing.JFrame {
         jCBox_cluster_face.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "C1", "C2", "C3", "C4" }));
 
         jB_SelezGS.setFont(new java.awt.Font("Tahoma", 0, 10));
-        jB_SelezGS.setText("Import Gold Standard from file.dot");
-        jB_SelezGS.setToolTipText("Import Gold Standard");
+        jB_SelezGS.setText("Import Golden Standard from file.dot");
+        jB_SelezGS.setToolTipText("Import Golden Standard");
         jB_SelezGS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jB_SelezGSActionPerformed(evt);
@@ -407,8 +416,7 @@ public class Start extends javax.swing.JFrame {
         jPanelBar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanelBar.setLayout(new java.awt.BorderLayout());
 
-        jRB_Import.setSelected(true);
-        jRB_Import.setText("Import Gold Standard from DataBase");
+        jRB_Import.setText("Import Golden STandard from DataBase");
         jRB_Import.setBorder(null);
         jRB_Import.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
@@ -513,16 +521,22 @@ public class Start extends javax.swing.JFrame {
             }
         });
 
+        jTx_nome_db.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTx_nome_dbActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTx_titolo, javax.swing.GroupLayout.DEFAULT_SIZE, 487, Short.MAX_VALUE)
+            .addComponent(jTx_titolo, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jP_pannello, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jS_separatore, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE)
+                    .addComponent(jS_separatore, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jL_indirizzo_db, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -530,30 +544,30 @@ public class Start extends javax.swing.JFrame {
                             .addComponent(jL_db, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTx_nome_db, javax.swing.GroupLayout.Alignment.LEADING, 0, 129, Short.MAX_VALUE)
+                            .addComponent(jTx_nome_db, javax.swing.GroupLayout.Alignment.LEADING, 0, 127, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTx_port, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
+                                .addComponent(jTx_port, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jT_monitor, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jTx_indirizzo_db, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE))
+                            .addComponent(jTx_indirizzo_db, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jL_pass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jL_user, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE))
                         .addGap(13, 13, 13)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTx_user, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
+                            .addComponent(jTx_user, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jB_cancel, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
-                                    .addComponent(jPass_password, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE))
+                                    .addComponent(jB_cancel, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)
+                                    .addComponent(jPass_password, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jB_connect, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jB_Load, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                                .addComponent(jB_Load, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jPanelBar, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -565,13 +579,13 @@ public class Start extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jL_cluster_face)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jCBox_cluster_face, 0, 136, Short.MAX_VALUE))))
+                                .addComponent(jCBox_cluster_face, 0, 132, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jL_trace, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jCB_AppName, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCB_TSRidotte, 0, 113, Short.MAX_VALUE)
+                        .addComponent(jCB_TSRidotte, 0, 111, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jB_DeleteTS)))
                 .addContainerGap())
@@ -594,40 +608,40 @@ public class Start extends javax.swing.JFrame {
                                 .addComponent(jCB_half)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jB_quit))))
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE))
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTF_TSR, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
-                    .addComponent(jL_Tecniche, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
+                    .addComponent(jTF_TSR, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                    .addComponent(jL_Tecniche, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jB_View)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jB_ReduceTCs, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE))
+                        .addComponent(jB_ReduceTCs, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jCB_Kind, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCB_mod, 0, 102, Short.MAX_VALUE)))
+                        .addComponent(jCB_mod, 0, 99, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jS_separatore1, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE)
+                    .addComponent(jS_separatore1, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jRB_Import, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
+                        .addComponent(jRB_Import, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jB_Filter, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE))
+                        .addComponent(jB_Filter, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
-                            .addComponent(jL_SelezGS, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
-                            .addComponent(jB_SelezGS, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE))
+                            .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(jL_SelezGS, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(jB_SelezGS, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -690,9 +704,9 @@ public class Start extends javax.swing.JFrame {
                         .addComponent(jB_SelezGS)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jL_SelezGS, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(8, 8, 8)
@@ -733,17 +747,15 @@ public class Start extends javax.swing.JFrame {
         // TODO add your handling code here:
         MatrixTestCase matr = null;
 
-        if(!jRB_Import.isSelected()){
+        if (!jRB_Import.isSelected()) {
             //Import da File
             matr = new MatrixTestCase(imp.getStates(), imp.getTransitions(), tcases, jCB_Kind.getSelectedIndex(), "label");
-        }
-        else{
+        } else {
             //Import dal DB
-            if(((String)jCB_Kind.getSelectedItem()).equals("Javascript")){
+            if (((String) jCB_Kind.getSelectedItem()).equals("Javascript")) {
                 imp = new ImportGoldenS(tcases, "js");
                 matr = new MatrixTestCase(imp.getJavascript(), imp.getJavascript(), tcases, 2, "js");
-            }
-            else{
+            } else {
                 imp = new ImportGoldenS(tcases, this.jCB_mod.getSelectedItem().toString());
                 matr = new MatrixTestCase(imp.getStates(), imp.getTransitions(), tcases, jCB_Kind.getSelectedIndex(), this.jCB_mod.getSelectedItem().toString());
             }
@@ -753,8 +765,8 @@ public class Start extends javax.swing.JFrame {
         matr.ruduceMatrix();
         matrix_reduc = matr.getMatrixR();
         tcases_r = matr.getTCaseR();
-        if(jTF_TSR.getText().equals("Insert name for Test Suite reduced")){}
-        else{
+        if (jTF_TSR.getText().equals("Insert name for Test Suite reduced")) {
+        } else {
             this.writeTSR(tcases_r);
             this.fillNameTSReduced();
         }
@@ -781,8 +793,8 @@ public class Start extends javax.swing.JFrame {
 
     private void jB_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_cancelActionPerformed
         // TODO add your handling code here:
-        Object[] obj_1 = {jTx_user, jPass_password, jTx_nome_db, jTx_port, jTx_indirizzo_db, jB_connect,jT_elenco};
-        this.setEnableObject(obj_1 , true);
+        Object[] obj_1 = {jTx_user, jPass_password, jTx_nome_db, jTx_port, jTx_indirizzo_db, jB_connect, jT_elenco};
+        this.setEnableObject(obj_1, true);
         jTx_user.setText("root");
 //        jTx_nome_db.setText("creriautente");
         this.loadNameDBs();
@@ -795,7 +807,7 @@ public class Start extends javax.swing.JFrame {
         model.setNumRows(0);
         jT_elenco.setModel(model);
         Object[] obj_2 = {jCB_half, jCBox_cluster_face1, jDynaRia, jB_Java, jB_ReduceTCs, jCBox_cluster, jCBox_cluster_face, jB_SelezGS, jB_Load, jB_Filter, jB_View, jRB_Import};
-        this.setEnableObject(obj_2 , false);
+        this.setEnableObject(obj_2, false);
         this.fillTabEvents(new String[0][0]);
         jPB_progressione.setValue(0);
 }//GEN-LAST:event_jB_cancelActionPerformed
@@ -803,19 +815,17 @@ public class Start extends javax.swing.JFrame {
     private void jB_XMLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_XMLActionPerformed
         // TODO add your handling code here:
         SelectSource sd = new SelectSource(1);
-        if(sd.getFlag() == 0){
+        if (sd.getFlag() == 0) {
             //non fare nulla
-        }
-        else{
+        } else {
             Object[] testCase = null;
             //Imposto testCase a seconda della scelta dell'utente.
-            if(this.jCB_half.isSelected()){
+            if (this.jCB_half.isSelected()) {
                 testCase = this.tcases_r;
-            }
-            else{
+            } else {
                 testCase = this.tcases;
             }
-            ParseToXML parse = new ParseToXML(testCase,this.getIdRowsSelected(jT_elenco, 1).size(), sd.getSource().getPath());
+            ParseToXML parse = new ParseToXML(testCase, this.getIdRowsSelected(jT_elenco, 1).size(), sd.getSource().getPath());
 //            System.out.println(sd.getSource().getPath());
         }
     }//GEN-LAST:event_jB_XMLActionPerformed
@@ -823,47 +833,43 @@ public class Start extends javax.swing.JFrame {
     private void jB_SelezGSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_SelezGSActionPerformed
         // TODO add your handling code here:
         SelectSource sd = new SelectSource(0);
-        if(sd.getFlag() == 0){
+        if (sd.getFlag() == 0) {
             //non fare nulla
-        }
-        else{
+        } else {
             File file_selez = sd.getSource();
             jL_SelezGS.setText(file_selez.getName());
             imp = new ImportGoldenS(file_selez);
             jB_ReduceTCs.setEnabled(true);
             jCB_Kind.setEnabled(true);
         }
-        
+
     }//GEN-LAST:event_jB_SelezGSActionPerformed
 
     private void jT_elencoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jT_elencoMouseClicked
         // TODO add your handling code here:
-        if(jT_elenco.isEnabled()){
+        if (jT_elenco.isEnabled()) {
             Object[] obj = {jB_Load, jRB_Import, jCBox_cluster, jCBox_cluster_face};
             riga_selez = jT_elenco.getSelectedRow();
-            if(riga_selez == 0 && jT_elenco.getValueAt(riga_selez, 0).toString().equals("true")){
-                for(int i = 0; i < jT_elenco.getRowCount(); i++){
-                    if(i != riga_selez){
+            if (riga_selez == 0 && jT_elenco.getValueAt(riga_selez, 0).toString().equals("true")) {
+                for (int i = 0; i < jT_elenco.getRowCount(); i++) {
+                    if (i != riga_selez) {
                         jT_elenco.setValueAt(true, i, 0);
                         fillTabEvents(getInfoTracesSelected());
                     }
                 }
                 setEnableObject(obj, true);
-            }
-            else if(riga_selez == 0 && jT_elenco.getValueAt(riga_selez, 0).toString().equals("false")){
-                for(int i = 0; i < jT_elenco.getRowCount(); i++){
-                    if(i != riga_selez){
+            } else if (riga_selez == 0 && jT_elenco.getValueAt(riga_selez, 0).toString().equals("false")) {
+                for (int i = 0; i < jT_elenco.getRowCount(); i++) {
+                    if (i != riga_selez) {
                         jT_elenco.setValueAt(false, i, 0);
                         fillTabEvents(getInfoTracesSelected());
                     }
                 }
                 setEnableObject(obj, false);
-            }
-            else if(getInfoTracesSelected().length > 0){
+            } else if (getInfoTracesSelected().length > 0) {
                 setEnableObject(obj, true);
                 fillTabEvents(getInfoTracesSelected());
-            }
-            else{
+            } else {
                 setEnableObject(obj, false);
                 fillTabEvents(getInfoTracesSelected());
             }
@@ -878,27 +884,26 @@ public class Start extends javax.swing.JFrame {
         TestCase trace = null;
         String[][] tracesSelez = this.getInfoTracesSelected();
         String traccia_da_trattare = new String();
-        if(filtri.size()!=0){
-            for(int i = 0; i < tracesSelez.length; i++){
-                for(int j = 0; j < filtri.size(); j++){
-                    filtro = (String)filtri.elementAt(j);
-                    event = filtro.substring(filtro.indexOf("$")+1, filtro.length());
-                    filtro = filtro.substring(0,filtro.indexOf("$"));
+        if (filtri.size() != 0) {
+            for (int i = 0; i < tracesSelez.length; i++) {
+                for (int j = 0; j < filtri.size(); j++) {
+                    filtro = (String) filtri.elementAt(j);
+                    event = filtro.substring(filtro.indexOf("$") + 1, filtro.length());
+                    filtro = filtro.substring(0, filtro.indexOf("$"));
                     traccia_da_trattare = tracesSelez[i][1];
-                    trace = (TestCase)tcases[i];
-                    if(traccia_da_trattare.equals(filtro)){
+                    trace = (TestCase) tcases[i];
+                    if (traccia_da_trattare.equals(filtro)) {
                         trace.cleanTrace(event);
                     }
                 }
                 tcases[i] = trace;
             }
         }
-        if(tracesSelez.length >= 1 && jRB_Import.isSelected()){
+        if (tracesSelez.length >= 1 && jRB_Import.isSelected()) {
             jCB_Kind.setEnabled(true);
             jB_ReduceTCs.setEnabled(true);
             jCB_mod.setEnabled(true);
-        }
-        else if(tracesSelez.length >= 1 && !jRB_Import.isSelected()){
+        } else if (tracesSelez.length >= 1 && !jRB_Import.isSelected()) {
             jB_SelezGS.setEnabled(true);
             jCB_mod.setEnabled(false);
         }
@@ -908,24 +913,24 @@ public class Start extends javax.swing.JFrame {
         // TODO add your handling code here:
         String[][] traceSel = this.getInfoTracesSelected();
         DBmanagement db = new DBmanagement();
-        String tipoClusterTran = (String)jCBox_cluster.getSelectedItem();
-        String tipoClusterFace = (String)jCBox_cluster_face.getSelectedItem();
+        String tipoClusterTran = (String) jCBox_cluster.getSelectedItem();
+        String tipoClusterFace = (String) jCBox_cluster_face.getSelectedItem();
         String query = new String();
         ResultSet rs = null;
         TestCase trace = null;
-        try{
+        try {
             tcases = new Object[traceSel.length];
-            conn = (Connection) db.db_connection(jTx_user.getText(), jPass_password.getPassword(), (String)jTx_nome_db.getSelectedItem(), jTx_port.getText(), jTx_indirizzo_db.getText());
-            
+            conn = (Connection) db.db_connection(jTx_user.getText(), jPass_password.getPassword(), (String) jTx_nome_db.getSelectedItem(), jTx_port.getText(), jTx_indirizzo_db.getText());
+
             //Controllo Progress Bar.
-            jPB_progressione.setMaximum(traceSel.length*10);
-            IncrementBar ib = new IncrementBar(traceSel.length*10, this);
+            jPB_progressione.setMaximum(traceSel.length * 10);
+            IncrementBar ib = new IncrementBar(traceSel.length * 10, this);
             ib.start();
             //Fine controllo Progress Bar
 
             String temp = new String();
-            for(int i = 0; i < traceSel.length; i++){
-                query = new String("SELECT tra.id_start, tra.id_arrival,tra.id_tab_transition,tra."+tipoClusterTran+", ev.type, obj.xpath, face.ilabel, tra.tlabel, face."+tipoClusterFace+" FROM tab_trace t, tab_interface face, tab_transition tra, tab_event ev, tab_dom_object obj, tab_input i where t.id_tab_trace=face.id_tab_trace and face.id_tab_interface=tra.id_arrival and tra.id_tab_transition=ev.id_tab_transition and ev.id_tab_dom_object=obj.id_tab_dom_object and  t.id_tab_trace='"+traceSel[i][0]+"' group by tra.id_arrival");
+            for (int i = 0; i < traceSel.length; i++) {
+                query = new String("SELECT tra.id_start, tra.id_arrival,tra.id_tab_transition,tra." + tipoClusterTran + ", ev.type, obj.xpath, face.ilabel, tra.tlabel, face." + tipoClusterFace + " FROM tab_trace t, tab_interface face, tab_transition tra, tab_event ev, tab_dom_object obj, tab_input i where t.id_tab_trace=face.id_tab_trace and face.id_tab_interface=tra.id_arrival and tra.id_tab_transition=ev.id_tab_transition and ev.id_tab_dom_object=obj.id_tab_dom_object and  t.id_tab_trace='" + traceSel[i][0] + "' group by tra.id_arrival");
                 rs = db.select(query);
                 trace = new TestCase(rs, 9);
                 trace.setIdTrace(traceSel[i][0]);
@@ -942,8 +947,7 @@ public class Start extends javax.swing.JFrame {
             jB_Java.setEnabled(true);
             Object[] obj_4 = {jT_elenco, jCBox_cluster, jCBox_cluster_face, jB_Load, jRB_Import, jCB_mod};
             this.setEnableObject(obj_4, false);
-        }
-        catch(Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
 
@@ -965,38 +969,37 @@ public class Start extends javax.swing.JFrame {
         String[][] cmd = null;
         Vector rowSel = this.getIdRowsSelected(jT_elenco, 1);
         //Imposto testCase a seconda della scelta dell'utente.
-        if(this.jCB_half.isSelected()){
+        if (this.jCB_half.isSelected()) {
             testCase = this.tcases_r;
             /*System.out.println(this.jCB_half.isSelected()+" "+testCase.length);
             for(int i = 0; i < testCase.length; i++){
-                System.out.println(((TestCase)testCase[i]).getNameTrace());
+            System.out.println(((TestCase)testCase[i]).getNameTrace());
             }*/
-        }
-        else{
+        } else {
             testCase = this.tcases;
             /*System.out.println(this.jCB_half.isSelected()+" "+testCase.length);
             for(int i = 0; i < testCase.length; i++){
-                System.out.println(((TestCase)testCase[i]).getNameTrace());
+            System.out.println(((TestCase)testCase[i]).getNameTrace());
             }*/
         }
-        
-        for(int i = 0; i < testCase.length; i++){
+
+        for (int i = 0; i < testCase.length; i++) {
             //Creo file di log
-            log = new LogTest(((TestCase)testCase[i]).getNameTrace(),((TestCase)testCase[i]).getDateTrace(),((TestCase)testCase[i]).getIdTrace());
+            log = new LogTest(((TestCase) testCase[i]).getNameTrace(), ((TestCase) testCase[i]).getDateTrace(), ((TestCase) testCase[i]).getIdTrace());
             newt.setLog(log);
 
             //Prelevo i comandi cmd da eseguire per la traccia specifica testCase[i].
             command = new Commands(testCase[i]);
             cmd = command.getCommands();
 
-            System.out.println("Comandi traccia: "+i);//Da eliminare
+            System.out.println("Comandi traccia: " + i);//Da eliminare
             log.appendInfo(" -- Comandi che verranno eseguti -- \n");
-            for(int j = 0; j < cmd.length; j++){
-                log.appendInfo(cmd[j][0]+" "+cmd[j][1]+" "+cmd[j][2]);
-                System.out.println(cmd[j][0]+" @ "+cmd[j][1]+" @ "+cmd[j][2]);//Da eliminare
+            for (int j = 0; j < cmd.length; j++) {
+                log.appendInfo(cmd[j][0] + " " + cmd[j][1] + " " + cmd[j][2]);
+                System.out.println(cmd[j][0] + " @ " + cmd[j][1] + " @ " + cmd[j][2]);//Da eliminare
             }
             log.appendInfo(" -- Fine comandi che verranno eseguti -- \n");
-            System.out.println("Fine comandi traccia: "+i);//Da eliminare
+            System.out.println("Fine comandi traccia: " + i);//Da eliminare
 
 
             Thread th = new Thread(newt);
@@ -1005,19 +1008,18 @@ public class Start extends javax.swing.JFrame {
             newt.setUp();
             //Eseguo il test
             double temp1 = System.currentTimeMillis();
-            if(newt.test(cmd, (String)this.jCBox_cluster_face1.getSelectedItem())){
+            if (newt.test(cmd, (String) this.jCBox_cluster_face1.getSelectedItem())) {
                 //tutto ok, andiamo avanti con la prossima traccia
                 //tearDown
                 double temp2 = System.currentTimeMillis();
                 double res = temp2 - temp1;
-                setColorTrace(((TestCase)testCase[i]).getIdTrace(), "G", res);
+                setColorTrace(((TestCase) testCase[i]).getIdTrace(), "G", res);
                 newt.tearDown();
                 Thread.interrupted();
-            }
-            else{
+            } else {
                 double temp2 = System.currentTimeMillis();
                 double res = temp2 - temp1;
-                setColorTrace(((TestCase)testCase[i]).getIdTrace(), "R", res);
+                setColorTrace(((TestCase) testCase[i]).getIdTrace(), "R", res);
                 //tearDown
                 newt.tearDown();
                 Thread.interrupted();
@@ -1028,19 +1030,28 @@ public class Start extends javax.swing.JFrame {
 
     private void jB_JavaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_JavaActionPerformed
         // TODO add your handling code here:
+
+        //TODO Open StancaDialog
+        //get the selected values
+        StancaDialog dialog=new StancaDialog(this,true);
+        dialog.setVisible(true);
+        List<String> selectOpts=dialog.getSelectedOpts();
         IoFileWriting classJava;
         int numTraces = this.getIdRowsSelected(jT_elenco, 1).size();
         String[][] infoTraces;
         String nameFile;
+        String nameFileParsed;
         Commands comm;
         String[][] cmds;
-        if(numTraces >= 1){
+
+        if (numTraces >= 1) {
             infoTraces = this.getInfoTracesSelected();
-            for(int i = 0; i < infoTraces.length; i++){
+            for (int i = 0; i < infoTraces.length; i++) {
                 comm = new Commands(this.tcases[i]);
                 cmds = comm.getCommands();
                 nameFile = new String(infoTraces[i][1].replaceAll(" ", "_"));
-                classJava = new IoFileWriting("java//"+nameFile+".java");
+                nameFileParsed=parseNameFile(nameFile);
+                classJava = new IoFileWriting("java//" + nameFileParsed + ".java");
                 classJava.write("package test;");
                 classJava.write("/*");
                 classJava.write("* To change this template, choose Tools | Templates");
@@ -1049,29 +1060,77 @@ public class Start extends javax.swing.JFrame {
                 classJava.write("import com.thoughtworks.selenium.Selenium;");
                 classJava.write("import org.seleniuminspector.SeleniumTestCase;");
                 classJava.write("import service.Utility;");
-                classJava.write("import testsuitemanager.Commands;");
+                classJava.write("import testsuitemanager.Commands;");                
+                classJava.write("import gui.Start;");                
+                if(!selectOpts.isEmpty()){
+                    classJava.write("import stancamanager.StancaValidator;");
+                    classJava.write("import org.xml.sax.SAXException;");
+                    classJava.write("import java.io.FileWriter;");
+                    classJava.write("import java.io.IOException;");
+                    classJava.write("import java.io.Writer;");
+                    classJava.write("import java.util.LinkedList;");
+                    classJava.write("import java.util.List;");
+                    classJava.write("import java.util.logging.Level;");
+                    classJava.write("import java.util.logging.Logger;");
+                    classJava.write("import org.apache.commons.betwixt.io.BeanWriter;");
+                    classJava.write("import stancamanager.AnalyzedInterface;");
+                    classJava.write("import stancamanager.TestTime;");
+                    classJava.write("import java.beans.IntrospectionException;");
+                }
                 classJava.write("/**");
                 classJava.write("*");
-                classJava.write("* @author angelo");
+                classJava.write("* @author Giuseppe");
                 classJava.write("*/");
-                classJava.write("public class "+nameFile+" extends SeleniumTestCase implements Runnable{");
+                classJava.write("public class " + nameFileParsed + " extends SeleniumTestCase {");
                 classJava.write("    private Selenium selenium;");
-                classJava.write("    private Utility utility;");
+                classJava.write("    private Utility utility = new Utility();");
+                if(!selectOpts.isEmpty()){
+                    classJava.write("    private long startDateTest =0 ;");
+                    classJava.write("    private long endDateTest=0 ;");
+                    classJava.write("    private long startDateInterface=0;");
+                    classJava.write("    private long endDateInterface=0;");
+                    classJava.write("    private List<AnalyzedInterface> analizyedInterfaces = new LinkedList<AnalyzedInterface>();");
+                    classJava.write("    private List resultTime = new LinkedList();");
+                }
                 classJava.write(" ");
                 classJava.write("    public boolean test() {");
-                classJava.write("        selenium = utility.setUp();");
-                classJava.write("        String[][] cmd = new String["+cmds.length+"][3];");
+                if(!selectOpts.isEmpty()){
+                classJava.write("        startDateTest=System.currentTimeMillis();");
+                classJava.write("        StancaValidator.setPublicIp(\""+dialog.getPublicIp() +"\");");
+                classJava.write("        StancaValidator.setPort(\""+dialog.getPort() +"\");");
+                }
+                //classJava.write("        StancaValidator.setPublicIp(\""+dialog.getPublicIp() +"\");");
+                //classJava.write("        StancaValidator.setPort(\""+dialog.getPort() +"\");");
+                classJava.write("        selenium = utility.setUp(\""+dialog.jTxUrl.getText()+"\");");
+                //classJava.write("        selenium = utility.setUp(\""++"\");");
+                classJava.write("        String[][] cmd = new String[" + cmds.length + "][3];");
                 classJava.write("        boolean assertInterface = false;\n");
                 classJava.write("        String[][] fields = null;");
                 classJava.write("        Commands comm = new Commands();");
-                classJava.write("        String cluster = new String("+"\""+(String)this.jCBox_cluster_face.getSelectedItem()+"\""+");");
-                for(int r = 0; r < cmds.length; r++){
-                classJava.write("        cmd["+r+"][0] = "+"\""+cmds[r][0]+"\";");
-                classJava.write("        cmd["+r+"][1] = "+"\""+cmds[r][1]+"\";");
-                classJava.write("        cmd["+r+"][2] = "+"\""+cmds[r][2]+"\";");
+                classJava.write("        String cluster = new String(" + "\"" + (String) this.jCBox_cluster_face.getSelectedItem() + "\"" + ");");
+                for (int r = 0; r < cmds.length; r++) {
+                    classJava.write("        cmd[" + r + "][0] = " + "\"" + cmds[r][0] + "\";");
+                    classJava.write("        cmd[" + r + "][1] = " + "\"" + cmds[r][1] + "\";");
+                    classJava.write("        cmd[" + r + "][2] = " + "\"" + cmds[r][2] + "\";");
                 }
                 classJava.write("        for(int i = 0; i < cmd.length; i++){");
+                if(!selectOpts.isEmpty()){
+                    classJava.write("            startDateInterface=System.currentTimeMillis();");
+                }
                 classJava.write("            assertInterface = utility.assertPage(utility.getObj(cluster, Integer.parseInt(cmd[i][2])), cluster, selenium);");
+                //Genera chiamate per i metodi della classe StancaValidator
+                
+                if(!selectOpts.isEmpty()){                    
+                    classJava.write("            AnalyzedInterface ai = new AnalyzedInterface();");
+                    classJava.write("            analizyedInterfaces.add(ai);");
+                    classJava.write("            StancaValidator.getIdInterface(cluster, selenium.getLocation(), "+ nameFileParsed +".class,Integer.parseInt(cmd[i][2]), ai, assertInterface);");
+                }
+                for(String selectedOpt:selectOpts){
+                    classJava.write("            StancaValidator.requisito"+selectedOpt+"(selenium, "+ nameFileParsed +".class, ai);");
+                }
+                if(!selectOpts.isEmpty()){                   
+                    classJava.write("            StancaValidator.resultCount("+ nameFileParsed +".class, ai);");
+                }           
                 classJava.write("            if(assertInterface){");
                 classJava.write("                fields = comm.getValueFields(cmd[i][2]);");
                 classJava.write("                if(fields.length != 0){");
@@ -1084,16 +1143,73 @@ public class Start extends javax.swing.JFrame {
                 classJava.write("                }");
                 classJava.write("            }");
                 classJava.write("            else{");
+                if(!selectOpts.isEmpty()){
+                classJava.write("                endDateInterface=System.currentTimeMillis();");
+                classJava.write("                StancaValidator.printTestTimeInterface("+nameFileParsed+".class,startDateInterface,endDateInterface,Integer.parseInt(cmd[i][2]),ai);");
+                }
                 classJava.write("                break;");
                 classJava.write("            }");
+                if(!selectOpts.isEmpty()){
+                classJava.write("            endDateInterface=System.currentTimeMillis();");
+                classJava.write("            StancaValidator.printTestTimeInterface("+nameFileParsed+".class,startDateInterface,endDateInterface,Integer.parseInt(cmd[i][2]),ai);");
+                }
                 classJava.write("        }");
                 classJava.write("        utility.tearDown(selenium);");
+                if(!selectOpts.isEmpty()){
+                classJava.write("        endDateTest=System.currentTimeMillis();");
+                classJava.write("        TestTime tt = new TestTime();");
+                classJava.write("        resultTime.add(tt);");
+                classJava.write("        StancaValidator.printTestTime("+nameFileParsed+".class, startDateTest, endDateTest, tt);");
+                classJava.write("        analizyedInterfaces.addAll(resultTime);");
+                classJava.write("        createLogToFile(analizyedInterfaces);");
+                }
                 classJava.write("        return assertInterface;");
                 classJava.write("     }");
+                classJava.write(" ");                
+                classJava.write(" ");                
+                //Method bd_parameters
+                classJava.write("    public void bd_parameters() {");
+                //TODO recuperare valori da TestRia
+                classJava.write("        Start.user = \""+this.jTx_user.getText() +"\";");
+                //classJava.write("   char[] password = Start.user.toCharArray();");
+                //classJava.write("   Start.passwo = " + this.jPass_password.getText() + ";");
+                classJava.write("        char[] password = \""+this.jPass_password.getText()+"\".toCharArray();");
+                classJava.write("        Start.passwo = password;");
+                classJava.write("        Start.nomeDB = \""+this.jTx_nome_db.getSelectedItem().toString()+"\";");
+                classJava.write("        Start.porto = \""+this.jTx_port.getText()+"\";");
+                classJava.write("        Start.posiz = \""+this.jTx_indirizzo_db.getText()+"\";");
+                classJava.write("    }");
                 classJava.write(" ");
-                classJava.write("   public void run() {");
-                classJava.write("   }");
+                if(!selectOpts.isEmpty()){
+                classJava.write("    public void createLogToFile(List analizyedInterfaces) {");
+                classJava.write("        try {");
+                classJava.write("            this.analizyedInterfaces = analizyedInterfaces;");
+                classJava.write("            Writer outputWriter = new FileWriter(\""+dialog.jTxPath.getText()+"/"+nameFileParsed+".xml"+"\");");
+                classJava.write("            BeanWriter beanWriter = new BeanWriter(outputWriter);");
+                //classJava.write("            beanWriter.setEndOfLine(\""+"\r\n"+"\");");
+                //classJava.write("            beanWriter.setIndent(\""+"\t"+"\");");
+                classJava.write("            beanWriter.enablePrettyPrint();");
+                classJava.write("            beanWriter.writeXmlDeclaration(\""+"<?xml version='1.0' encoding='UTF-8'?>"+"\");");
+                classJava.write("            beanWriter.write(analizyedInterfaces);");
+                classJava.write("            outputWriter.close();");
+                classJava.write("        } catch (IOException ex) {");
+                classJava.write("            Logger.getLogger("+nameFileParsed+".class.getName()).log(Level.SEVERE,"+"\" Errore creazione file di log "+"\", ex);");
+                classJava.write("        } catch (SAXException ex) {");
+                classJava.write("            Logger.getLogger("+nameFileParsed+".class.getName()).log(Level.SEVERE,"+"\" Errore creazione file di log "+"\", ex);");
+                classJava.write("        } catch (IntrospectionException ex) {");
+                classJava.write("            Logger.getLogger("+nameFileParsed+".class.getName()).log(Level.SEVERE,"+"\" Errore creazione file di log "+"\", ex);");
+                classJava.write("        }");
+                classJava.write("    }");
+                }
+                classJava.write(" ");
+                classJava.write("    public static void main(String[] args) {");
+                classJava.write("        "+nameFileParsed+" myTest = new "+nameFileParsed+"();");
+                classJava.write("        myTest.bd_parameters();");
+                classJava.write("        myTest.test();");
+                classJava.write("    }");
+                classJava.write(" ");
                 classJava.write("}");
+            
             }
         }
     }//GEN-LAST:event_jB_JavaActionPerformed
@@ -1103,15 +1219,14 @@ public class Start extends javax.swing.JFrame {
         String typeEv = new String();
         boolean selez = false;
         Boolean bool;
-        for(int i = 0; i < jT_Filter.getRowCount(); i++){
+        for (int i = 0; i < jT_Filter.getRowCount(); i++) {
             bool = new Boolean((jT_Filter.getValueAt(i, 0).toString()));
             selez = bool.booleanValue();
-            typeEv = ((String)jT_Filter.getValueAt(i, 1));
-            for(int j = 0; j < jT_Event.getRowCount(); j++){
-                if(selez && typeEv.equals(this.jT_Event.getValueAt(j, 2))){
+            typeEv = ((String) jT_Filter.getValueAt(i, 1));
+            for (int j = 0; j < jT_Event.getRowCount(); j++) {
+                if (selez && typeEv.equals(this.jT_Event.getValueAt(j, 2))) {
                     jT_Event.setValueAt(true, j, 0);
-                }
-                else if(!selez && typeEv.equals(this.jT_Event.getValueAt(j, 2))){
+                } else if (!selez && typeEv.equals(this.jT_Event.getValueAt(j, 2))) {
                     jT_Event.setValueAt(false, j, 0);
                 }
             }
@@ -1120,19 +1235,19 @@ public class Start extends javax.swing.JFrame {
 
     private void jDynaRiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDynaRiaActionPerformed
         // TODO add your handling code here:
-        try{
+        try {
             Element rootElement = new Element("DynaRIA");
             Document document = new Document(rootElement);
             String[][] infoTraceSel = this.getInfoTracesSelected();
             Element idTracce = new Element("IdTracce");
             rootElement.addContent(idTracce);
             Element id;
-            for(int i = 0; i < infoTraceSel.length; i++){
-                id = new Element("Traccia_"+i);
+            for (int i = 0; i < infoTraceSel.length; i++) {
+                id = new Element("Traccia_" + i);
                 id.setText(infoTraceSel[i][0]);
                 idTracce.addContent(id);
             }
-            
+
             //Creazione dell'oggetto XMLOutputter
             XMLOutputter outputter = new XMLOutputter();
             //Imposto il formato dell'outputter come "bel formato"
@@ -1141,11 +1256,10 @@ public class Start extends javax.swing.JFrame {
             FileOutputStream f = new FileOutputStream("dynaria//dynaria.xml");
             //outputter.output(document, f);
             outputter.output(document, f);
+        } catch (IOException e) {
+            System.err.println("Errore durante la creazione del file per DynaRia");
+            e.printStackTrace();
         }
-        catch(IOException e) {
-              System.err.println("Errore durante la creazione del file per DynaRia");
-              e.printStackTrace();
-            }
     }//GEN-LAST:event_jDynaRiaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -1156,27 +1270,24 @@ public class Start extends javax.swing.JFrame {
 
     private void jCB_AppNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCB_AppNameActionPerformed
         // TODO add your handling code here:
-        if(!this.jCB_AppName.getSelectedItem().equals(this.jCB_AppName.getItemAt(0))){
-            this.fillTabTrace(getTraces((String)jCB_AppName.getSelectedItem()));
-        }
-        else{
+        if (!this.jCB_AppName.getSelectedItem().equals(this.jCB_AppName.getItemAt(0))) {
+            this.fillTabTrace(getTraces((String) jCB_AppName.getSelectedItem()));
+        } else {
             this.fillTabTrace(getTraces(""));
         }
     }//GEN-LAST:event_jCB_AppNameActionPerformed
 
     private void jCB_TSRidotteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCB_TSRidotteActionPerformed
         // TODO add your handling code here:
-        try{
-            if(!this.jCB_TSRidotte.getSelectedItem().equals(this.jCB_TSRidotte.getItemAt(0))){
+        try {
+            if (!this.jCB_TSRidotte.getSelectedItem().equals(this.jCB_TSRidotte.getItemAt(0))) {
                 this.jB_DeleteTS.setEnabled(true);
-                this.fillTabTrace(getTSR((String)jCB_TSRidotte.getSelectedItem()));
-            }
-            else{
+                this.fillTabTrace(getTSR((String) jCB_TSRidotte.getSelectedItem()));
+            } else {
                 this.jB_DeleteTS.setEnabled(false);
                 this.fillTabTrace(getTraces(""));
             }
-        }
-        catch(NullPointerException ex){
+        } catch (NullPointerException ex) {
             this.jB_DeleteTS.setEnabled(false);
             this.fillTabTrace(getTraces(""));
         }
@@ -1189,143 +1300,149 @@ public class Start extends javax.swing.JFrame {
 
     private void jB_DeleteTSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_DeleteTSActionPerformed
         // TODO add your handling code here:
-        String tsr = new String((String)this.jCB_TSRidotte.getSelectedItem());
+        String tsr = new String((String) this.jCB_TSRidotte.getSelectedItem());
         DBmanagement db = new DBmanagement();
-        Connection connec = (Connection) db.db_connection(jTx_user.getText(), jPass_password.getPassword(), (String)jTx_nome_db.getSelectedItem(), jTx_port.getText(), jTx_indirizzo_db.getText());
-        String query = "DELETE FROM creriautente.tab_ts_reduced WHERE name='"+tsr+"'";
+        Connection connec = (Connection) db.db_connection(jTx_user.getText(), jPass_password.getPassword(), (String) jTx_nome_db.getSelectedItem(), jTx_port.getText(), jTx_indirizzo_db.getText());
+        String query = "DELETE FROM creriautente.tab_ts_reduced WHERE name='" + tsr + "'";
         db.update(query);
         db.close_db_connection(connec);
         this.fillNameTSReduced();
     }//GEN-LAST:event_jB_DeleteTSActionPerformed
 
-    private void loadComboBox(){//non chiamata
+    private void jTx_nome_dbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTx_nome_dbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTx_nome_dbActionPerformed
+
+    private void jPass_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPass_passwordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPass_passwordActionPerformed
+
+    private void loadComboBox() {//non chiamata
         DBmanagement db = new DBmanagement();
         Connection connection = null;
         String query = new String();
         ResultSet rs = null;
         DataSet data = null;
         String[][] res = null;
-        connection = (Connection) db.db_connection(jTx_user.getText(), jPass_password.getPassword(), (String)jTx_nome_db.getSelectedItem(), jTx_port.getText(), jTx_indirizzo_db.getText());
+        connection = (Connection) db.db_connection(jTx_user.getText(), jPass_password.getPassword(), (String) jTx_nome_db.getSelectedItem(), jTx_port.getText(), jTx_indirizzo_db.getText());
         query = new String("SELECT t.Name FROM tab_type_cluster_transition t");
         rs = db.select(query);
-        data = new DataSet(rs,1);
+        data = new DataSet(rs, 1);
         res = data.getMatrixOfRSet();
-        for(int i = 0; i < res.length; i++){
+        for (int i = 0; i < res.length; i++) {
             jCBox_cluster.addItem(res[i][0]);
         }
         query = new String("SELECT t.Name FROM tab_type_cluster_state t");
         rs = db.select(query);
-        data = new DataSet(rs,1);
+        data = new DataSet(rs, 1);
         res = data.getMatrixOfRSet();
-        for(int i = 0; i < res.length; i++){
+        for (int i = 0; i < res.length; i++) {
             jCBox_cluster_face.addItem(res[i][0]);
         }
         db.close_db_connection(connection);
 
     }
 
-    private void fillTabTrace(String[][] tracesLoaded){
-            try {
-                DefaultTableModel model = (DefaultTableModel) jT_elenco.getModel();
-                model.setNumRows(tracesLoaded.length+1);
-                Vector dimTraces = this.getDimTraces(tracesLoaded);
-                jT_elenco.setModel(model);
-                jT_elenco.getColumn("").setMinWidth(20);
-                jT_elenco.getColumn("").setMaxWidth(20);
-                jT_elenco.getColumn("").setResizable(false);
-                jT_elenco.getColumn("-").setMinWidth(35);
-                jT_elenco.getColumn("-").setMaxWidth(35);
-                jT_elenco.getColumn("-").setResizable(false);
-                jT_elenco.getColumn("Id Trace").setMinWidth(50);
-                jT_elenco.getColumn("Id Trace").setMaxWidth(50);
-                jT_elenco.getColumn("Id Trace").setResizable(false);
-                jT_elenco.getColumn("Size").setMinWidth(55);
-                jT_elenco.getColumn("Size").setMaxWidth(55);
-                jT_elenco.getColumn("Size").setResizable(false);
-                jT_elenco.getColumn("Date").setMinWidth(120);
-                jT_elenco.getColumn("Date").setMaxWidth(120);
-                jT_elenco.getColumn("Date").setResizable(false);
-                jT_elenco.getColumn("Username").setResizable(false);
-                jT_elenco.getColumn("Name trace").setResizable(true);
-                jT_elenco.getColumnModel().getColumn(5).setCellRenderer(new JProgress(dimTraces));
-                jT_elenco.getColumnModel().getColumn(6).setCellRenderer(new JProgress());
+    private void fillTabTrace(String[][] tracesLoaded) {
+        try {
+            DefaultTableModel model = (DefaultTableModel) jT_elenco.getModel();
+            model.setNumRows(tracesLoaded.length + 1);
+            Vector dimTraces = this.getDimTraces(tracesLoaded);
+            jT_elenco.setModel(model);
+            jT_elenco.getColumn("").setMinWidth(20);
+            jT_elenco.getColumn("").setMaxWidth(20);
+            jT_elenco.getColumn("").setResizable(false);
+            jT_elenco.getColumn("-").setMinWidth(35);
+            jT_elenco.getColumn("-").setMaxWidth(35);
+            jT_elenco.getColumn("-").setResizable(false);
+            jT_elenco.getColumn("Id Trace").setMinWidth(50);
+            jT_elenco.getColumn("Id Trace").setMaxWidth(50);
+            jT_elenco.getColumn("Id Trace").setResizable(false);
+            jT_elenco.getColumn("Size").setMinWidth(55);
+            jT_elenco.getColumn("Size").setMaxWidth(55);
+            jT_elenco.getColumn("Size").setResizable(false);
+            jT_elenco.getColumn("Date").setMinWidth(120);
+            jT_elenco.getColumn("Date").setMaxWidth(120);
+            jT_elenco.getColumn("Date").setResizable(false);
+            jT_elenco.getColumn("Username").setResizable(false);
+            jT_elenco.getColumn("Name trace").setResizable(true);
+            jT_elenco.getColumnModel().getColumn(5).setCellRenderer(new JProgress(dimTraces));
+            jT_elenco.getColumnModel().getColumn(6).setCellRenderer(new JProgress());
 
-                for(int k = 0; k < tracesLoaded.length; k++){
-                    jT_elenco.setValueAt(false, k+1, 0);
-                    jT_elenco.setValueAt(tracesLoaded[k][0], k+1, 1);
-                    jT_elenco.setValueAt(tracesLoaded[k][1], k+1, 2);
-                    jT_elenco.setValueAt(tracesLoaded[k][2], k+1, 3);
-                    jT_elenco.setValueAt(tracesLoaded[k][3]+"_"+tracesLoaded[k][4], k+1, 4);
-                    jT_elenco.setValueAt(Integer.parseInt(String.valueOf(dimTraces.elementAt(k))), k+1, 5);
-                }
+            for (int k = 0; k < tracesLoaded.length; k++) {
+                jT_elenco.setValueAt(false, k + 1, 0);
+                jT_elenco.setValueAt(tracesLoaded[k][0], k + 1, 1);
+                jT_elenco.setValueAt(tracesLoaded[k][1], k + 1, 2);
+                jT_elenco.setValueAt(tracesLoaded[k][2], k + 1, 3);
+                jT_elenco.setValueAt(tracesLoaded[k][3] + "_" + tracesLoaded[k][4], k + 1, 4);
+                jT_elenco.setValueAt(Integer.parseInt(String.valueOf(dimTraces.elementAt(k))), k + 1, 5);
+            }
 
-                jT_monitor.setBackground(Color.GREEN);
-                user = jTx_user.getText();
-                passwo = jPass_password.getPassword();
-                porto = jTx_port.getText();
-                nomeDB = (String)jTx_nome_db.getSelectedItem();
-                posiz = jTx_indirizzo_db.getText();
-            }
-            catch (Exception ex) {
-                jT_monitor.setBackground(Color.RED);
-                ex.printStackTrace();
-            }
-            Object[] obj = {jTx_user, jPass_password, jTx_nome_db, jTx_port, jTx_indirizzo_db, jB_connect};
-            this.setEnableObject(obj , false);
-            Object[] obj_2 = {jDynaRia};
-            this.setEnableObject(obj_2, true);
+            jT_monitor.setBackground(Color.GREEN);
+            user = jTx_user.getText();
+            passwo = jPass_password.getPassword();
+            porto = jTx_port.getText();
+            nomeDB = (String) jTx_nome_db.getSelectedItem();
+            posiz = jTx_indirizzo_db.getText();
+        } catch (Exception ex) {
+            jT_monitor.setBackground(Color.RED);
+            ex.printStackTrace();
+        }
+        Object[] obj = {jTx_user, jPass_password, jTx_nome_db, jTx_port, jTx_indirizzo_db, jB_connect};
+        this.setEnableObject(obj, false);
+        Object[] obj_2 = {jDynaRia};
+        this.setEnableObject(obj_2, true);
     }
 
-    private String[][] getTSR(String ts){
+    private String[][] getTSR(String ts) {
         DBmanagement db = new DBmanagement();
         Connection connection = null;
         String query = new String();
         ResultSet rs = null;
         DataSet data = null;
-        connection = (Connection) db.db_connection(jTx_user.getText(), jPass_password.getPassword(), (String)jTx_nome_db.getSelectedItem(), jTx_port.getText(), jTx_indirizzo_db.getText());
-        query = new String("SELECT ts.id_trace FROM tab_ts_reduced ts where ts.name='"+ts+"'");
+        connection = (Connection) db.db_connection(jTx_user.getText(), jPass_password.getPassword(), (String) jTx_nome_db.getSelectedItem(), jTx_port.getText(), jTx_indirizzo_db.getText());
+        query = new String("SELECT ts.id_trace FROM tab_ts_reduced ts where ts.name='" + ts + "'");
         rs = db.select(query);
-        data = new DataSet(rs,1);
+        data = new DataSet(rs, 1);
         String[][] idtr = data.getMatrixOfRSet();
         DataSet[] traces = new DataSet[idtr.length];
-        for(int i = 0; i < idtr.length; i++){
+        for (int i = 0; i < idtr.length; i++) {
             int id = Integer.parseInt(idtr[i][0]);
-            query = new String("SELECT tr.id_tab_trace,tr.tracename,t.username,tr.tracedata,tr.tracetime,tr.appname FROM tab_user t, tab_trace tr where t.id_tab_user = tr.id_tab_user and tr.id_tab_trace='"+id+"'");
+            query = new String("SELECT tr.id_tab_trace,tr.tracename,t.username,tr.tracedata,tr.tracetime,tr.appname FROM tab_user t, tab_trace tr where t.id_tab_user = tr.id_tab_user and tr.id_tab_trace='" + id + "'");
             rs = db.select(query);
-            traces[i] = new DataSet(rs,6);
+            traces[i] = new DataSet(rs, 6);
         }
         db.close_db_connection(connection);
         String[][] res = new String[idtr.length][6];
         String[][] temp = null;
-        for(int i = 0; i < res.length; i++){
+        for (int i = 0; i < res.length; i++) {
             temp = traces[i].getMatrixOfRSet();
-            for(int j = 0; j < res[0].length; j++){
+            for (int j = 0; j < res[0].length; j++) {
                 res[i][j] = temp[0][j];
             }
         }
         return res;
     }
 
-    private String[][] getTraces(String appname){
+    private String[][] getTraces(String appname) {
         DBmanagement db = new DBmanagement();
         Connection connection = null;
         String query = new String();
         ResultSet rs = null;
         DataSet data = null;
-        connection = (Connection) db.db_connection(jTx_user.getText(), jPass_password.getPassword(), (String)jTx_nome_db.getSelectedItem(), jTx_port.getText(), jTx_indirizzo_db.getText());
-        if(appname.equals("")){
+        connection = (Connection) db.db_connection(jTx_user.getText(), jPass_password.getPassword(), (String) jTx_nome_db.getSelectedItem(), jTx_port.getText(), jTx_indirizzo_db.getText());
+        if (appname.equals("")) {
             query = new String("SELECT tr.id_tab_trace,tr.tracename,t.username,tr.tracedata,tr.tracetime,tr.appname FROM tab_user t, tab_trace tr where t.id_tab_user = tr.id_tab_user");
-        }
-        else{
-            query = new String("SELECT tr.id_tab_trace,tr.tracename,t.username,tr.tracedata,tr.tracetime,tr.appname FROM tab_user t, tab_trace tr where t.id_tab_user = tr.id_tab_user and tr.appname='"+appname+"'");
+        } else {
+            query = new String("SELECT tr.id_tab_trace,tr.tracename,t.username,tr.tracedata,tr.tracetime,tr.appname FROM tab_user t, tab_trace tr where t.id_tab_user = tr.id_tab_user and tr.appname='" + appname + "'");
         }
         rs = db.select(query);
-        data = new DataSet(rs,6);
+        data = new DataSet(rs, 6);
         db.close_db_connection(connection);
         return data.getMatrixOfRSet();
     }
 
-    private Vector getDimTraces(String[][] traces){
+    private Vector getDimTraces(String[][] traces) {
         DBmanagement db = new DBmanagement();
         Connection connection = null;
         String query = new String();
@@ -1333,11 +1450,11 @@ public class Start extends javax.swing.JFrame {
         DataSet data = null;
         String[][] temp = null;
         Vector res = new Vector();
-        connection = (Connection) db.db_connection(jTx_user.getText(), jPass_password.getPassword(), (String)jTx_nome_db.getSelectedItem(), jTx_port.getText(), jTx_indirizzo_db.getText());
-        for(int i = 0; i < traces.length; i++){
-            query = new String("SELECT COUNT(*) FROM tab_interface tf, tab_trace tr WHERE tf.id_tab_trace = tr.id_tab_trace and tf.id_tab_trace = '"+traces[i][0]+"'");
+        connection = (Connection) db.db_connection(jTx_user.getText(), jPass_password.getPassword(), (String) jTx_nome_db.getSelectedItem(), jTx_port.getText(), jTx_indirizzo_db.getText());
+        for (int i = 0; i < traces.length; i++) {
+            query = new String("SELECT COUNT(*) FROM tab_interface tf, tab_trace tr WHERE tf.id_tab_trace = tr.id_tab_trace and tf.id_tab_trace = '" + traces[i][0] + "'");
             rs = db.select(query);
-            data = new DataSet(rs,1);
+            data = new DataSet(rs, 1);
             temp = data.getMatrixOfRSet();
             res.addElement(temp[0][0]);
         }
@@ -1345,114 +1462,116 @@ public class Start extends javax.swing.JFrame {
         return res;
     }
 
-    private Vector getFilter(){
+    private Vector getFilter() {
         Vector res = new Vector();
         String fil = new String();
         Object obj = new Object();
-        for(int i = 0; i < jT_Event.getRowCount(); i++){
+        for (int i = 0; i < jT_Event.getRowCount(); i++) {
             obj = jT_Event.getValueAt(i, 0);
             fil = obj.toString();
-            if(fil.equals("true")){
-                fil = jT_Event.getValueAt(i, 1)+"$"+jT_Event.getValueAt(i, 2);
+            if (fil.equals("true")) {
+                fil = jT_Event.getValueAt(i, 1) + "$" + jT_Event.getValueAt(i, 2);
                 res.addElement(fil);
             }
         }
         return res;
     }
 
-    private void setEnableObject(Object[] obj , boolean state){
+    private void setEnableObject(Object[] obj, boolean state) {
         JComponent comp;
-        for(int i = 0; i < obj.length; i++){
+        for (int i = 0; i < obj.length; i++) {
             comp = (JComponent) obj[i];
             comp.setEnabled(state);
         }
     }
 
-    private void setColorTrace(String idTrace, String color, double tempo){
+    private void setColorTrace(String idTrace, String color, double tempo) {
         String temp = new String();
         DecimalFormat df = new DecimalFormat("#");
         double div = 1000;
-        double res = tempo/div;
-        for(int i = 1; i < this.jT_elenco.getRowCount(); i++){
+        double res = tempo / div;
+        for (int i = 1; i < this.jT_elenco.getRowCount(); i++) {
             temp = String.valueOf(jT_elenco.getValueAt(i, 1));
-            if(temp.equals(idTrace)){
-                jT_elenco.setValueAt(color+""+df.format(res)+"s", i, 6);
+            if (temp.equals(idTrace)) {
+                jT_elenco.setValueAt(color + "" + df.format(res) + "s", i, 6);
             }
         }
     }
 
-    private Vector getIdRowsSelected(JTable table, int start){
+    private Vector getIdRowsSelected(JTable table, int start) {
         Vector rowsSel = new Vector();
         Object obj = new Object();
         String str = new String();
-        for(int i = start; i < table.getRowCount(); i++){
+        for (int i = start; i < table.getRowCount(); i++) {
             obj = table.getValueAt(i, 0);
             str = obj.toString();
-            if(str.equals("true")){rowsSel.addElement(i);}
+            if (str.equals("true")) {
+                rowsSel.addElement(i);
+            }
         }
         return rowsSel;
     }
 
-    private String[][] getInfoTracesSelected(){
+    private String[][] getInfoTracesSelected() {
         Vector idRows = this.getIdRowsSelected(jT_elenco, 1);
         String[][] infoTraceSel = new String[idRows.size()][4];
         Object obj = new Object();
         String str = new String();
-        for(int i = 0; i < idRows.size(); i++){
+        for (int i = 0; i < idRows.size(); i++) {
             obj = jT_elenco.getValueAt(Integer.parseInt(String.valueOf(idRows.elementAt(i))), 0);
             str = obj.toString();
-            if(str.equals("true")){
-                infoTraceSel[i][0] = (String)jT_elenco.getValueAt(Integer.parseInt(String.valueOf(idRows.elementAt(i))), 1);
-                infoTraceSel[i][1] = (String)jT_elenco.getValueAt(Integer.parseInt(String.valueOf(idRows.elementAt(i))), 2);
-                infoTraceSel[i][2] = (String)jT_elenco.getValueAt(Integer.parseInt(String.valueOf(idRows.elementAt(i))), 3);
-                infoTraceSel[i][3] = (String)jT_elenco.getValueAt(Integer.parseInt(String.valueOf(idRows.elementAt(i))), 4);
+            if (str.equals("true")) {
+                infoTraceSel[i][0] = (String) jT_elenco.getValueAt(Integer.parseInt(String.valueOf(idRows.elementAt(i))), 1);
+                infoTraceSel[i][1] = (String) jT_elenco.getValueAt(Integer.parseInt(String.valueOf(idRows.elementAt(i))), 2);
+                infoTraceSel[i][2] = (String) jT_elenco.getValueAt(Integer.parseInt(String.valueOf(idRows.elementAt(i))), 3);
+                infoTraceSel[i][3] = (String) jT_elenco.getValueAt(Integer.parseInt(String.valueOf(idRows.elementAt(i))), 4);
             }
         }
         return infoTraceSel;
     }
 
-    private void fillAppName(Vector apname){
+    private void fillAppName(Vector apname) {
         this.jCB_AppName.addItem("App Name");
-        for(int i = 0; i < apname.size(); i++){
+        for (int i = 0; i < apname.size(); i++) {
             this.jCB_AppName.addItem(apname.elementAt(i));
         }
     }
 
-    private void fillNameTSReduced(){
+    private void fillNameTSReduced() {
         DBmanagement db = new DBmanagement();
         Connection connection = null;
         String query = new String();
         ResultSet rs = null;
         DataSet data = null;
-        connection = (Connection) db.db_connection(jTx_user.getText(), jPass_password.getPassword(), (String)jTx_nome_db.getSelectedItem(), jTx_port.getText(), jTx_indirizzo_db.getText());
+        connection = (Connection) db.db_connection(jTx_user.getText(), jPass_password.getPassword(), (String) jTx_nome_db.getSelectedItem(), jTx_port.getText(), jTx_indirizzo_db.getText());
         query = new String("SELECT tsr.name FROM tab_ts_reduced tsr");
         rs = db.select(query);
-        data = new DataSet(rs,1);
+        data = new DataSet(rs, 1);
         db.close_db_connection(connection);
         jCB_TSRidotte.removeAllItems();
         this.jCB_TSRidotte.addItem("TS Reduced");
         Vector ts = new Vector();
-        for(int i = 0; i < data.getMatrixOfRSet().length; i++){
-            if(!ts.contains(data.getMatrixOfRSet()[i][0])){
+        for (int i = 0; i < data.getMatrixOfRSet().length; i++) {
+            if (!ts.contains(data.getMatrixOfRSet()[i][0])) {
                 ts.addElement(data.getMatrixOfRSet()[i][0]);
             }
         }
-        for(int i = 0; i < ts.size(); i++){
+        for (int i = 0; i < ts.size(); i++) {
             this.jCB_TSRidotte.addItem(ts.elementAt(i));
         }
     }
 
-    private Vector getAppName(String[][] tracesLoaded){
+    private Vector getAppName(String[][] tracesLoaded) {
         Vector res = new Vector();
-        for(int i = 0; i < tracesLoaded.length; i++){
-            if(!res.contains(tracesLoaded[i][5])){
+        for (int i = 0; i < tracesLoaded.length; i++) {
+            if (!res.contains(tracesLoaded[i][5])) {
                 res.addElement(tracesLoaded[i][5]);
             }
         }
         return res;
     }
 
-    private void fillTabEvents(String[][] infoTr){
+    private void fillTabEvents(String[][] infoTr) {
         DefaultTableModel model = (DefaultTableModel) jT_Event.getModel();
         Connection con = null;
         String query = null;
@@ -1460,18 +1579,18 @@ public class Start extends javax.swing.JFrame {
         Vector row_2 = new Vector();
         String temp = new String();
         DBmanagement db1 = new DBmanagement();
-        try{
-            con = (Connection) db1.db_connection(jTx_user.getText(), jPass_password.getPassword(), (String)jTx_nome_db.getSelectedItem(), jTx_port.getText(), jTx_indirizzo_db.getText());
-            for(int i = 0; i < infoTr.length; i++){
-                query = new String("SELECT t.tracename, ev.type FROM tab_trace t, tab_interface face, tab_transition tra, tab_event ev where t.id_tab_trace=face.id_tab_trace and face.id_tab_interface=tra.id_arrival and tra.id_tab_transition=ev.id_tab_transition and t.id_tab_trace = '"+infoTr[i][0]+"' ");
+        try {
+            con = (Connection) db1.db_connection(jTx_user.getText(), jPass_password.getPassword(), (String) jTx_nome_db.getSelectedItem(), jTx_port.getText(), jTx_indirizzo_db.getText());
+            for (int i = 0; i < infoTr.length; i++) {
+                query = new String("SELECT t.tracename, ev.type FROM tab_trace t, tab_interface face, tab_transition tra, tab_event ev where t.id_tab_trace=face.id_tab_trace and face.id_tab_interface=tra.id_arrival and tra.id_tab_transition=ev.id_tab_transition and t.id_tab_trace = '" + infoTr[i][0] + "' ");
                 ResultSet rs = db1.select(query);
-                while(rs.next()){
-                    temp = rs.getString(1)+"$"+rs.getString(2);
-                    if(!row_1.contains(temp)){
+                while (rs.next()) {
+                    temp = rs.getString(1) + "$" + rs.getString(2);
+                    if (!row_1.contains(temp)) {
                         row_1.addElement(temp);
                     }
                     temp = rs.getString(2);
-                    if(!row_2.contains(temp)){
+                    if (!row_2.contains(temp)) {
                         row_2.addElement(temp);
                     }
                 }
@@ -1483,10 +1602,10 @@ public class Start extends javax.swing.JFrame {
             jT_Event.getColumn("").setResizable(false);
             jT_Event.getColumn("Event").setResizable(false);
             jT_Event.getColumn("Trace").setResizable(false);
-            for(int j = 0; j < row_1.size(); j++){
+            for (int j = 0; j < row_1.size(); j++) {
                 jT_Event.setValueAt(false, j, 0);
                 jT_Event.setValueAt(row_1.elementAt(j).toString().substring(0, row_1.elementAt(j).toString().indexOf("$")), j, 1);
-                jT_Event.setValueAt(row_1.elementAt(j).toString().substring(row_1.elementAt(j).toString().indexOf("$")+1, row_1.elementAt(j).toString().length()), j, 2);
+                jT_Event.setValueAt(row_1.elementAt(j).toString().substring(row_1.elementAt(j).toString().indexOf("$") + 1, row_1.elementAt(j).toString().length()), j, 2);
             }
             model = (DefaultTableModel) this.jT_Filter.getModel();
             model.setRowCount(row_2.size());
@@ -1494,12 +1613,11 @@ public class Start extends javax.swing.JFrame {
             jT_Filter.getColumn("").setMaxWidth(20);
             jT_Filter.getColumn("").setResizable(false);
 //            jT_Filter.getColumn("Filter type").setResizable(false);
-            for(int j = 0; j < row_2.size(); j++){
+            for (int j = 0; j < row_2.size(); j++) {
                 jT_Filter.setValueAt(false, j, 0);
                 jT_Filter.setValueAt(row_2.elementAt(j), j, 1);
             }
-        }
-        catch(Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
 
@@ -1511,39 +1629,47 @@ public class Start extends javax.swing.JFrame {
         String query = new String();
         ResultSet rs = null;
         DataSet data = null;
-        connection = (Connection) db.db_connection(jTx_user.getText(), jPass_password.getPassword(), (String)jTx_nome_db.getSelectedItem(), jTx_port.getText(), jTx_indirizzo_db.getText());
+        connection = (Connection) db.db_connection(jTx_user.getText(), jPass_password.getPassword(), (String) jTx_nome_db.getSelectedItem(), jTx_port.getText(), jTx_indirizzo_db.getText());
         TestCase tcase;
-        for(int i = 0; i < tcases_r.length; i++){
-            tcase = (TestCase)tcases_r[i];
-            query = new String("INSERT INTO tab_ts_reduced (name, id_trace) VALUES('"+this.jTF_TSR.getText()+"', '"+tcase.getIdTrace()+"')");
+        for (int i = 0; i < tcases_r.length; i++) {
+            tcase = (TestCase) tcases_r[i];
+            query = new String("INSERT INTO tab_ts_reduced (name, id_trace) VALUES('" + this.jTF_TSR.getText() + "', '" + tcase.getIdTrace() + "')");
             db.update(query);
         }
         db.close_db_connection(connection);
     }
 
-    private void loadNameDBs(){
-        try{
+    private void loadNameDBs() {
+        try {
             DBmanagement db = new DBmanagement();
             Connection con = (Connection) db.db_connection(jTx_user.getText(), jPass_password.getPassword(), "", jTx_port.getText(), jTx_indirizzo_db.getText());
             ResultSet rs = (ResultSet) con.getMetaData().getCatalogs();
             jTx_nome_db.removeAllItems();
-            while (rs.next()){
+            while (rs.next()) {
                 jTx_nome_db.addItem(rs.getString(1));
             }
+        } catch (Exception ex) {
         }
-        catch (Exception ex){}
     }
-    /**
-    * @param args the command line arguments
-    */
-    /*public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Start().setVisible(true);
-            }
-        });
-    }*/
+    //QUESTO METODO ESEGUE IL PARSING DEL NOME DEL TESTCASE CARICATO DAL DB E SOSTITUISCE "." CON "_"
+    private String parseNameFile(String text){       
 
+        String res= "";     
+        res=text.replace(".", "_");
+
+    return res;
+    }
+    
+    /**
+     * @param args the command line arguments
+     */
+    /*public static void main(String args[]) {
+    java.awt.EventQueue.invokeLater(new Runnable() {
+    public void run() {
+    new Start().setVisible(true);
+    }
+    });
+    }*/
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jB_DeleteTS;
@@ -1606,6 +1732,4 @@ public class Start extends javax.swing.JFrame {
     private javax.swing.JTextField jTx_user;
     private javax.swing.JFrame start;
     // End of variables declaration//GEN-END:variables
-
-
 }

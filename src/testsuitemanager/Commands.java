@@ -11,7 +11,7 @@ import testsuitemanager.TestCase;
 import dbmanager.DBmanagement;
 import com.mysql.jdbc.ResultSet;
 import gui.Start;
-
+import com.mysql.jdbc.Connection;
 /**
  *
  * @author angelo
@@ -56,7 +56,7 @@ public class Commands {
     /**
      * Questo metodo estrae dalla traccia
      * le informazioni necessarie per definire
-     * i comandi di riesecuzione della stessa.
+     * i comandi di riesucuzione della stessa.
      */
     private void extracttCommands(){
         String[][] obj = trace.getCleanedTrace();
@@ -82,11 +82,18 @@ public class Commands {
     public static String[][] getValueFields(String id_interface){
         String[][] res = null;
         DBmanagement db = new DBmanagement();
+
+        
         db.db_connection(Start.user, Start.passwo, Start.nomeDB, Start.porto, Start.posiz);
+        
         String query = new String("SELECT t.value, t.path FROM tab_input t WHERE t.id_tab_interface = '"+id_interface+"' ");
         ResultSet rs = db.select(query);
         DataSet ds = new DataSet(rs,2);
-        db.close_db_connection(Start.conn);
+        //db.close_db_connection(Start.conn);originale
+
+        db.close_db_connection(db.db_connection(Start.user, Start.passwo, Start.nomeDB, Start.porto, Start.posiz));//peppe
+
+
         res = new String[ds.getRowCount()][ds.getColCount()];
         res = ds.getMatrixOfRSet();
         return res;

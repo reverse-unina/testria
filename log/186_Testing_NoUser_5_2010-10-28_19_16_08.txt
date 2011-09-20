@@ -1,0 +1,14 @@
+03/01/2011 - 17:59:01 --- LOG TRACE ---> Testing_NoUser_5
+03/01/2011 - 17:59:01  -- Comandi che verranno eseguti -- 
+
+03/01/2011 - 17:59:01 click //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/form[1]/table[1]/tbody[1]/tr[4]/th[1]/input[1] 41
+03/01/2011 - 17:59:01 end //html[1]/body[1]/table[2]/tbody[1]/tr[2]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/form[1]/table[1]/tbody[1]/tr[4]/th[1]/input[1] 42
+03/01/2011 - 17:59:01  -- Fine comandi che verranno eseguti -- 
+
+03/01/2011 - 17:59:22 Verifica interfaccia: 41 cluster selezionato C4
+03/01/2011 - 17:59:22 Eseguo assertPage su interfaccia: 41
+03/01/2011 - 17:59:23 C4 --> A //html/BODY/TABLE/TBODY/TR/TD/A
+03/01/2011 - 17:59:24 C4 --> A //html/BODY/TABLE/TBODY/TR/TD/UL/LI/A
+03/01/2011 - 17:59:25 C4 --> A //html/BODY/TABLE[@id='page']/TBODY/TR/TD/A
+03/01/2011 - 17:59:26 C4 --> Fallito: A //html/BODY/TABLE[@id='page']/TBODY/TR/TD/DIV[@id='content']/TABLE/TBODY/TR/TD/DIV/UL/LI/A
+03/01/2011 - 17:59:26 AssertPage su interfaccia: 41 fallito. Causa: Elemento non presente.

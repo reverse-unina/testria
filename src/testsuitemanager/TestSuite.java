@@ -48,15 +48,25 @@ public class TestSuite extends SeleniumTestCase implements Runnable{
 
     @Before
     public void setUp() {
-        selenium = new DefaultSelenium("localhost", 4444,"*firefox", "http://127.0.0.1:8080/");
-        startupTomcat();
-        pleaseWait(20000);
-        //ho commentato la riga successiva in quanto non i test non si basano su un dbase
-        //resetDB();
-        selenium.start();
+        String profile = "*custom \"C:\\Program Files\\Mozilla Firefox\\firefox.exe\" ";
         
+           // selenium = new DefaultSelenium("localhost", 4444,profile, "http://127.0.0.1:8080/");
+        //selenium = new DefaultSelenium("localhost", 4444,"*firefox", "http://localhost:8080/");originale
+
+        startupTomcat();
+        
+        pleaseWait(15000);
+        //pleaseWait(15000);originale
+        selenium = new DefaultSelenium("localhost", 4444,profile, "http://localhost:8080/");
+        
+//        resetDB();
+        selenium.start();
         selenium.setSpeed("1000");
-        selenium.open("tudu-dwr/");
+        
+        //selenium.open("tudu/");originale
+        selenium.open("tudu/");
+        
+
 //        loginTudu();
 
     }
@@ -74,7 +84,6 @@ public class TestSuite extends SeleniumTestCase implements Runnable{
     //
 
     //@Test
-    @SuppressWarnings("static-access")
     public boolean test(String[][] cmd, String cluster) {
         Commands comm = new Commands();
         String[][] fields = null;
@@ -132,6 +141,8 @@ public class TestSuite extends SeleniumTestCase implements Runnable{
      * Esegue l'assert della pagina corrente.
      */
     private boolean assertPage(String[][] obj, String cluster){
+    
+     
         boolean res = false;
         if(cluster.equals("C1") || cluster.equals("C2")){
             for(int i = 0; i < obj.length; i++){
@@ -223,19 +234,14 @@ public class TestSuite extends SeleniumTestCase implements Runnable{
      * Avvia Tomcat.
      */
     private void startupTomcat(){
-        Runtime myRun = Runtime.getRuntime();
+        //Runtime myRun = Runtime.getRuntime();
+        String command = "cmd /c start C:\\Users\\Peppe\\Desktop\\apache-tomcat-6.0.29\\bin\\startup.bat";
         try {
             //myRun.exec("cmd /C start "+"%CATALINA_HOME%\\bin\\startup.bat");
-
-            String s="\"C:\\Users\\Porfirio\\Desktop\\RIA Testing Experiment\\software\\apache-tomcat-6.0.29-windows-x86\\apache-tomcat-6.0.29\\bin\\tomcat6.exe\"";
-            System.out.println(s);
-            //myRun.exec("cmdAllPermissions.exe /c "+s);
-            myRun.exec(s);
-            pleaseWait(20000);
-            
+            //myRun.exec("cmd /C start "+"C:\\Tomcat 6.0\\bin\\startup.bat");
+            Runtime.getRuntime().exec(command);
         }
-        catch(Exception e) {e.printStackTrace();System.out.println("Impossible to run Tomcat.");}
-        System.out.println("Tomcat avviato");
+        catch(Exception e) {System.out.println("Impossible to run Tomcat.");}
     }
 
     /**
@@ -243,11 +249,13 @@ public class TestSuite extends SeleniumTestCase implements Runnable{
      * Arresta Tomcat.
      */
     private void shutdownTomcat(){
-        Runtime myRun = Runtime.getRuntime();
+
+        //Runtime myRun = Runtime.getRuntime();
+        String command = "cmd /c start C:\\Users\\Peppe\\Desktop\\apache-tomcat-6.0.29\\bin\\startup.bat";
         try {
-            //myRun.exec("%CATALINA_HOME%\\bin\\shutdown.bat");
-            //myRun.exec("C:\\Programmi\\Apache Software Foundation\\Tomcat 6.0\\bin\\shutdown.bat");
-            String s="\"C:\\Users\\Porfirio\\Desktop\\RIA Testing Experiment\\software\\apache-tomcat-6.0.29-windows-x86\\apache-tomcat-6.0.29\\bin\\shutdown.bat\"";
+            //myRun.exec("cmd /C start "+"%CATALINA_HOME%\\bin\\shutdown.bat");
+            //myRun.exec("cmd /C start "+"C:\\Tomcat 6.0\\bin\\shutdown.bat");
+            Runtime.getRuntime().exec(command);
         }
         catch(Exception e) {System.out.println("Impossible to stop Tomcat.");}
     }
@@ -309,6 +317,8 @@ public class TestSuite extends SeleniumTestCase implements Runnable{
      * e della particolare pagina oggetto di testing.
      */
     private String[][] getObj(String clu, int face){
+    
+    
         ResultSet rs = null;
         DataSet ds = null;
         String[][] res = null;
@@ -424,4 +434,5 @@ public class TestSuite extends SeleniumTestCase implements Runnable{
 
     public void run() {
     }
+    
 }

@@ -11,6 +11,7 @@ import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.ResultSet;
 import com.mysql.jdbc.Statement;
 import gui.Start;
+import gui.Main;
 
 /**
  *
@@ -27,6 +28,7 @@ public class DBmanagement {
     private Statement stmt = null;
     private ResultSet rs = null;
 
+    ;
     /**
      *
      * @param user
@@ -38,8 +40,11 @@ public class DBmanagement {
      * Questo metodo permette di instaurare una connessione con un database MySql.
      * La connessione è ritornata sottoforma di oggetto Connection.
      */
-    public Connection db_connection(String user, char[] password, String db, String port, String location) {
-            String url = "jdbc:mysql://"+location+":"+port+"/"+db+"";
+    public Connection db_connection(String user, char [] password, String db, String port, String location) {
+
+       
+
+        String url = "jdbc:mysql://"+location+":"+port+"/"+db+"";
             try {
                     Class.forName("com.mysql.jdbc.Driver").newInstance();
             } catch (Exception e) {
@@ -199,12 +204,14 @@ public class DBmanagement {
      * clusterizzazione C4.
      */
     public ResultSet selectObjectAndAttributesC4(int interf) {
+        
         //Da eliminare
         System.out.println("C4 --> "+interf);
-
-
         java.sql.CallableStatement storedProcedure = null;
+
         String dbase = Start.nomeDB;
+              
+
         try {
             storedProcedure = con.prepareCall("{ call "+dbase+".cluObjAttrInterfaceC4(?) }");
             storedProcedure.setInt(1, interf);
@@ -214,7 +221,9 @@ public class DBmanagement {
             System.out.println(e);
             return null;
         }
-    }
+    
+      }
+
 
     /**
      *

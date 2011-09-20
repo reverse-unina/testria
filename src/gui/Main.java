@@ -10,6 +10,8 @@ package gui;
  * @author angelo
  */
 public class Main {
+        
+
 
     /**
      * @param args the command line arguments
@@ -20,6 +22,7 @@ public class Main {
             Start s = new Start();
             s.setVisible(true);
             s.setResizable(false);
+            
     }
 
 }

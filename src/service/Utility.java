@@ -5,6 +5,7 @@
 
 package service;
 
+
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.ResultSet;
 import dbmanager.DBmanagement;
@@ -12,22 +13,44 @@ import com.thoughtworks.selenium.*;
 import org.seleniuminspector.SeleniumTestCase;
 import gui.Start;
 import java.util.Vector;
+
 /**
  *
  * @author Utente
  */
-public class Utility {
+public class Utility  {
     private DBmanagement db = new DBmanagement();
+    
 
-    public Selenium setUp() {
+    public Selenium setUp(String url) {
+        /**
+        String profile = "*custom \"C:\\Program Files\\Mozilla Firefox\\firefox.exe\" ";
         Selenium selenium;
-        selenium = new DefaultSelenium("localhost", 4444,"*firefox", "http://localhost:8080/");
+        //selenium = new DefaultSelenium("localhost", 4444,"*firefox", "http://localhost:8080/");originale
+        //selenium = new DefaultSelenium("localhost", 4444,profile, "http://localhost:8080/");
+        selenium = new DefaultSelenium("localhost", 4444,profile, "http://localhost/");
         startupTomcat();
         pleaseWait(12000);
-        resetDB();
+       //resetDB();originale
+        
         selenium.start();
         selenium.setSpeed("1000");
         selenium.open("tudu/");
+
+        */
+        Selenium selenium;
+        String profile = "*custom \"C:\\Program Files\\Mozilla Firefox\\firefox.exe\" ";
+        //selenium = new DefaultSelenium("localhost", 4444,profile, "http://www.istruzione.it/");
+        selenium = new DefaultSelenium("localhost", 4444,profile, url);
+        startupTomcat();
+        pleaseWait(12000);
+        selenium.start();
+        selenium.setSpeed("1000");
+        selenium.open("/");
+        
+        
+        
+        
         return selenium;
     }
 
@@ -35,6 +58,7 @@ public class Utility {
         selenium.stop();
         shutdownTomcat();
         pleaseWait(5000);
+
     }
    
     private void resetDB(){
@@ -77,6 +101,8 @@ public class Utility {
                 if(isParticularCase(obj[i][3])){
                     if(selenium.isElementPresent("//html[1]"+obj[i][1].substring(8))){
                         res = true;
+                        //log.appendInfo("Mod "+cluster+" --> "+obj[i][0]+" "+obj[i][2]+" "+obj[i][3]);//peppe
+
                         System.out.println("Mod "+cluster+" --> "+obj[i][0]+" "+obj[i][2]+" "+obj[i][3]);//Da eliminare
                     }
                 }
@@ -84,15 +110,21 @@ public class Utility {
                     try{
                         SeleniumTestCase.assertEquals(obj[i][3],selenium.getAttribute("//html[1]"+obj[i][1].substring(8)+"@"+obj[i][2]));
                         res = true;
+                        //log.appendInfo(cluster+" --> "+obj[i][0]+" "+obj[i][2]+" "+obj[i][3]);//peppe
                         System.out.println(cluster+" --> "+obj[i][0]+" "+obj[i][2]+" "+obj[i][3]);//Da eliminare
                     }
                     catch(SeleniumException e){
                         res = false;
+                        //this.cause = e.getMessage();//peppe
+                        //log.appendInfo(cluster+" --> Fallito: "+obj[i][0]+" "+obj[i][2]+" "+obj[i][3]);//peppe
                         System.out.println(cluster+" --> Fallito: "+obj[i][0]+" "+obj[i][2]+" "+obj[i][3]);//Da eliminare
                         break;
                     }
                     catch(AssertionError e){
                         res = false;
+                        //this.cause = e.getMessage();//peppe
+                        //log.appendInfo(cluster+" --> Fallito: "+obj[i][0]+" "+obj[i][2]+" "+obj[i][3]);//peppe
+
                         System.out.println(cluster+" --> Fallito: "+obj[i][0]+" "+obj[i][2]+" "+obj[i][3]);//Da eliminare
                         break;
                     }
@@ -103,10 +135,14 @@ public class Utility {
             for(int i = 0; i < obj.length; i++){
                 res = selenium.isElementPresent("//html"+obj[i][1].substring(5));
                 if(res){
+                    //log.appendInfo(cluster+" --> "+obj[i][0]+" "+"//html"+obj[i][1].substring(5));//peppe
                     System.out.println(cluster+" --> "+obj[i][0]+" "+"//html"+obj[i][1].substring(5));
                 }
                 else{
+                    //log.appendInfo(cluster+" --> Fallito: "+obj[i][0]+" "+"//html"+obj[i][1].substring(5));//peppe
+
                     System.out.println(cluster+" --> Fallito: "+obj[i][0]+" "+"//html"+obj[i][1].substring(5));
+                    //this.cause = "Elemento non presente.";//peppe
                     break;
                 }
 
@@ -119,7 +155,9 @@ public class Utility {
        ResultSet rs = null;
        DataSet ds = null;
        String[][] res = null;
+       
        db.db_connection(Start.user, Start.passwo, Start.nomeDB, Start.porto, Start.posiz);
+       
        if(clu.equals("C1")){
            rs = db.selectObjectAndAttributesC1(face);
            ds = new DataSet(rs,4);
