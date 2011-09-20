@@ -1,0 +1,13 @@
+19/09/2011 - 16:22:37 --- LOG TRACE ---> viaggi
+19/09/2011 - 16:22:37  -- Comandi che verranno eseguti -- 
+
+19/09/2011 - 16:22:37 click //html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[7]/ul[1]/li[1]/a[1] 498
+19/09/2011 - 16:22:37 click //html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[7]/ul[1]/li[2]/a[1] 499
+19/09/2011 - 16:22:37 click //html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[7]/ul[1]/li[5]/a[1] 500
+19/09/2011 - 16:22:37 end //html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[7]/ul[1]/li[5]/a[1] 501
+19/09/2011 - 16:22:37  -- Fine comandi che verranno eseguti -- 
+
+19/09/2011 - 16:23:42 Verifica interfaccia: 498 cluster selezionato C4
+19/09/2011 - 16:23:42 Eseguo assertPage su interfaccia: 498
+19/09/2011 - 16:23:44 C4 --> Fallito: A //html/BODY/DIV[@id='bloccocontenuto']/DIV/DIV/DIV/DIV/DIV/DIV[@id='accordodicembre']/DIV/DIV/UL/LI/A
+19/09/2011 - 16:23:44 AssertPage su interfaccia: 498 fallito. Causa: Elemento non presente.

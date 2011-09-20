@@ -82,79 +82,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jTx_titolo" alignment="0" pref="483" max="32767" attributes="1"/>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jP_pannello" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jS_separatore" alignment="1" pref="463" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jL_indirizzo_db" min="-2" pref="90" max="-2" attributes="0"/>
-                          <Component id="jL_port" alignment="0" min="-2" max="-2" attributes="1"/>
-                          <Component id="jL_db" alignment="0" min="-2" pref="90" max="-2" attributes="1"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jTx_nome_db" alignment="0" pref="127" max="32767" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jTx_port" pref="94" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jT_monitor" min="-2" pref="27" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="jTx_indirizzo_db" alignment="0" pref="127" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jL_pass" max="32767" attributes="1"/>
-                          <Component id="jL_user" alignment="0" pref="90" max="32767" attributes="1"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jTx_user" alignment="0" pref="135" max="32767" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jB_cancel" pref="84" max="32767" attributes="1"/>
-                                  <Component id="jPass_password" alignment="1" pref="84" max="32767" attributes="1"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jB_connect" min="-2" pref="45" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jB_Load" pref="139" max="32767" attributes="1"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jPanelBar" min="-2" pref="197" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButton1" min="-2" pref="109" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jL_cluster" min="-2" max="-2" attributes="1"/>
-                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                              <Component id="jCBox_cluster" min="-2" pref="100" max="-2" attributes="1"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jL_cluster_face" min="-2" max="-2" attributes="1"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jCBox_cluster_face" pref="132" max="32767" attributes="1"/>
-                          </Group>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jL_trace" min="-2" pref="152" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jCB_AppName" min="-2" pref="99" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jCB_TSRidotte" pref="111" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jB_DeleteTS" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-          </Group>
+          <Component id="jTx_titolo" alignment="0" pref="517" max="32767" attributes="1"/>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -168,10 +96,10 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jDynaRia" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jB_Java" pref="149" max="32767" attributes="0"/>
+                              <Component id="jB_Java" pref="183" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="jCBox_cluster_face1" pref="126" max="32767" attributes="1"/>
+                              <Component id="jCBox_cluster_face1" pref="160" max="32767" attributes="1"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jCB_half" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -179,51 +107,133 @@
                           </Group>
                       </Group>
                   </Group>
-                  <Component id="jSeparator1" alignment="1" pref="463" max="32767" attributes="0"/>
+                  <Component id="jSeparator1" alignment="1" pref="497" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jTF_TSR" pref="203" max="32767" attributes="0"/>
-                  <Component id="jL_Tecniche" alignment="1" pref="203" max="32767" attributes="0"/>
+                  <Component id="jTF_TSR" pref="220" max="32767" attributes="0"/>
+                  <Component id="jL_Tecniche" alignment="1" pref="220" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jB_View" min="-2" max="-2" attributes="1"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jB_ReduceTCs" pref="86" max="32767" attributes="1"/>
+                      <Component id="jB_ReduceTCs" pref="103" max="32767" attributes="1"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jCB_Kind" min="-2" pref="94" max="-2" attributes="1"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jCB_mod" pref="99" max="32767" attributes="0"/>
+                      <Component id="jCB_mod" pref="116" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="254" max="32767" attributes="0"/>
+              <Component id="jScrollPane1" pref="271" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jS_separatore1" alignment="0" pref="463" max="32767" attributes="0"/>
-                  <Component id="jLabel1" alignment="0" pref="463" max="32767" attributes="0"/>
+                  <Component id="jS_separatore1" alignment="0" pref="497" max="32767" attributes="0"/>
+                  <Component id="jLabel1" alignment="0" pref="497" max="32767" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="jRB_Import" pref="211" max="32767" attributes="0"/>
+                      <Component id="jRB_Import" pref="228" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jB_Filter" pref="246" max="32767" attributes="1"/>
+                      <Component id="jB_Filter" pref="263" max="32767" attributes="1"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jSeparator2" pref="203" max="32767" attributes="0"/>
-                          <Component id="jL_SelezGS" alignment="0" pref="203" max="32767" attributes="1"/>
-                          <Component id="jB_SelezGS" alignment="0" pref="203" max="32767" attributes="1"/>
+                          <Component id="jSeparator2" pref="220" max="32767" attributes="0"/>
+                          <Component id="jL_SelezGS" alignment="0" pref="220" max="32767" attributes="1"/>
+                          <Component id="jB_SelezGS" alignment="0" pref="220" max="32767" attributes="1"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane4" pref="254" max="32767" attributes="0"/>
+                      <Component id="jScrollPane4" pref="271" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="jP_pannello" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jS_separatore" alignment="1" pref="497" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jL_indirizzo_db" min="-2" pref="90" max="-2" attributes="0"/>
+                          <Component id="jL_port" alignment="0" min="-2" max="-2" attributes="1"/>
+                          <Component id="jL_db" alignment="0" min="-2" pref="90" max="-2" attributes="1"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jTx_nome_db" alignment="0" pref="144" max="32767" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jTx_port" pref="111" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jT_monitor" min="-2" pref="27" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jTx_indirizzo_db" alignment="0" pref="144" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jL_pass" max="32767" attributes="1"/>
+                          <Component id="jL_user" alignment="0" pref="90" max="32767" attributes="1"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jTx_user" alignment="0" pref="152" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jB_cancel" pref="101" max="32767" attributes="1"/>
+                                  <Component id="jPass_password" alignment="1" pref="101" max="32767" attributes="1"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jB_connect" min="-2" pref="45" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jB_Load" pref="173" max="32767" attributes="1"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jPanelBar" min="-2" pref="197" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jButton1" min="-2" pref="109" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jL_cluster" min="-2" max="-2" attributes="1"/>
+                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                              <Component id="jCBox_cluster" min="-2" pref="100" max="-2" attributes="1"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jL_cluster_face" min="-2" max="-2" attributes="1"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jCBox_cluster_face" pref="166" max="32767" attributes="1"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jL_trace" min="-2" pref="152" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jCB_AppName" min="-2" pref="99" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jCB_TSRidotte" pref="145" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jB_DeleteTS" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jSeparator3" pref="497" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Component id="jButton2" pref="497" max="32767" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -268,6 +278,10 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jP_pannello" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+              <Component id="jSeparator3" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jL_cluster" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
@@ -296,10 +310,10 @@
                       <Component id="jB_SelezGS" min="-2" max="-2" attributes="1"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jL_SelezGS" min="-2" pref="25" max="-2" attributes="1"/>
-                      <EmptySpace pref="39" max="32767" attributes="0"/>
+                      <EmptySpace pref="59" max="32767" attributes="0"/>
                       <Component id="jSeparator2" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jScrollPane4" pref="93" max="32767" attributes="0"/>
+                  <Component id="jScrollPane4" pref="113" max="32767" attributes="0"/>
               </Group>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" attributes="0">
@@ -312,7 +326,7 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jTF_TSR" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="8" max="32767" attributes="0"/>
+                      <EmptySpace pref="25" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jB_View" min="-2" pref="22" max="-2" attributes="0"/>
                           <Component id="jB_ReduceTCs" min="-2" pref="22" max="-2" attributes="0"/>
@@ -377,12 +391,12 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jScrollPane3" alignment="1" pref="451" max="32767" attributes="0"/>
+              <Component id="jScrollPane3" alignment="1" pref="485" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jScrollPane3" alignment="1" pref="130" max="32767" attributes="0"/>
+              <Component id="jScrollPane3" alignment="1" pref="97" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -572,6 +586,12 @@
           </StringArray>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCBox_clusterActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="Start_jCBox_cluster"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="jB_XML">
       <Properties>
@@ -636,6 +656,9 @@
           </StringArray>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCBox_cluster_faceActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jB_SelezGS">
       <Properties>
@@ -742,6 +765,7 @@
     </Container>
     <Component class="javax.swing.JRadioButton" name="jRB_Import">
       <Properties>
+        <Property name="selected" type="boolean" value="true"/>
         <Property name="text" type="java.lang.String" value="Import Golden STandard from DataBase"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
@@ -915,6 +939,16 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTx_nome_dbActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JSeparator" name="jSeparator3">
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Set Parameters for Accessibility Test"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

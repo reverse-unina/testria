@@ -235,7 +235,7 @@ public class TestSuite extends SeleniumTestCase implements Runnable{
      */
     private void startupTomcat(){
         //Runtime myRun = Runtime.getRuntime();
-        String command = "cmd /c start C:\\Users\\Peppe\\Desktop\\apache-tomcat-6.0.29\\bin\\startup.bat";
+        String command = "cmd /c start C:\\apache-tomcat-6.0.32\\bin\\startup.bat";
         try {
             //myRun.exec("cmd /C start "+"%CATALINA_HOME%\\bin\\startup.bat");
             //myRun.exec("cmd /C start "+"C:\\Tomcat 6.0\\bin\\startup.bat");
@@ -251,7 +251,7 @@ public class TestSuite extends SeleniumTestCase implements Runnable{
     private void shutdownTomcat(){
 
         //Runtime myRun = Runtime.getRuntime();
-        String command = "cmd /c start C:\\Users\\Peppe\\Desktop\\apache-tomcat-6.0.29\\bin\\startup.bat";
+        String command = "cmd /c start C:\\apache-tomcat-6.0.32\\bin\\shutdown.bat";
         try {
             //myRun.exec("cmd /C start "+"%CATALINA_HOME%\\bin\\shutdown.bat");
             //myRun.exec("cmd /C start "+"C:\\Tomcat 6.0\\bin\\shutdown.bat");
